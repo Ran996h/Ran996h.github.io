@@ -1,0 +1,84 @@
+当然！以下是一个简单的HTML和JavaScript小游戏网页的示例代码。这个小游戏是“猜数字”，玩家需要猜一个随机生成的数字。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            width: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>猜数字游戏</h1>
+    <p>我已经选择了一个 1 到 100 之间的数字。快来猜一猜吧！</p>
+    <input type="number" id="guess" min="1" max="100" />
+    <button onclick="checkGuess()">猜</button>
+    <div id="result"></div>
+    <button id="restart" style="display:none;" onclick="restartGame()">重新开始</button>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('guess').value);
+            attempts++;
+            let resultText = '';
+
+            if (userGuess < 1 || userGuess > 100) {
+                resultText = '请输入一个 1 到 100 之间的数字！';
+            } else if (userGuess < randomNumber) {
+                resultText = '太小了！再试一次。';
+            } else if (userGuess > randomNumber) {
+                resultText = '太大了！再试一次。';
+            } else {
+                resultText = `恭喜你！你在 ${attempts} 次尝试中猜对了数字 ${randomNumber}！`;
+                document.getElementById('restart').style.display = 'block';
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+
+        function restartGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('result').innerText = '';
+            document.getElementById('guess').value = '';
+            document.getElementById('restart').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+```
+
+### 如何使用这个代码：
+
+1. 将上面的代码复制到一个文本文件中，并将文件保存为 `index.html`。
+2. 用浏览器打开这个文件，你将看到猜数字游戏的界面。
+3. 输入一个数字并点击“猜”按钮来查看结果。
+4. 如果你猜对了，可以点击“重新开始”按钮来进行新一轮游戏。
+
+这个小游戏非常简单，但可以通过增加功能（比如限制尝试次数、提供提示等）来进行扩展！希望你喜欢！
