@@ -1,0 +1,76 @@
+以下是一个简单的HTML和JavaScript小游戏网页示例。这个游戏是一个简单的猜数字游戏，玩家需要在限定的次数内猜出计算机随机生成的数字。
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>猜数字游戏</h1>
+    <p>我已经想好了一个 1 到 100 之间的数字。你能在 10 次机会内猜到它吗？</p>
+    <input type="number" id="guess" placeholder="输入你的猜测" min="1" max="100">
+    <button onclick="checkGuess()">猜测</button>
+    <div class="message" id="message"></div>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 10;
+
+        function checkGuess() {
+            const userGuess = Number(document.getElementById("guess").value);
+            const messageElement = document.getElementById("message");
+
+            if (attempts > 0) {
+                attempts--;
+                if (userGuess === randomNumber) {
+                    messageElement.textContent = "恭喜你！你猜对了！";
+                    messageElement.style.color = "green";
+                } else if (userGuess < randomNumber) {
+                    messageElement.textContent = "太小了！你还有 " + attempts + " 次机会。";
+                } else {
+                    messageElement.textContent = "太大了！你还有 " + attempts + " 次机会。";
+                }
+            } else {
+                messageElement.textContent = "游戏结束！正确答案是 " + randomNumber + "。";
+                messageElement.style.color = "red";
+            }
+
+            document.getElementById("guess").value = "";
+        }
+    </script>
+</body>
+</html>
+```
+
+### 游戏说明
+1. 打开你的文本编辑器，将上述代码复制到一个新的HTML文件中，例如`guess_number_game.html`。
+2. 使用浏览器打开这个文件。
+3. 玩家需要在输入框中输入他们的猜测，然后点击“猜测”按钮。
+4. 游戏会提示玩家他们的猜测是太小、太大，还是猜对了，直到玩家用完10次机会或猜对为止。
+
+### 自定义
+你可以根据需要修改样式和游戏逻辑，比如改变数字范围、增加难度等。希望你喜欢这个小游戏！
