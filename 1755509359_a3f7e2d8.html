@@ -1,0 +1,266 @@
+# 商业模式画布可视化HTML代码
+
+以下是一个完整的商业模式画布可视化HTML代码，包含了商业模式画布的9个关键要素：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业模式画布可视化</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .canvas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+            height: 800px;
+        }
+        .block {
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .block-header {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .block-content {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .block-content textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            resize: none;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.5;
+            background-color: transparent;
+        }
+        .block-content textarea:focus {
+            outline: none;
+            background-color: #f9f9f9;
+        }
+        .customer-segments {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            background-color: #FFE4E1;
+        }
+        .value-propositions {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            background-color: #E6E6FA;
+        }
+        .channels {
+            grid-column: 3;
+            grid-row: 1;
+            background-color: #E0FFFF;
+        }
+        .customer-relationships {
+            grid-column: 3;
+            grid-row: 2;
+            background-color: #F0FFF0;
+        }
+        .revenue-streams {
+            grid-column: 1;
+            grid-row: 3;
+            background-color: #FFF0F5;
+        }
+        .key-resources {
+            grid-column: 2;
+            grid-row: 3;
+            background-color: #F5F5DC;
+        }
+        .key-activities {
+            grid-column: 3;
+            grid-row: 3;
+            background-color: #F0F8FF;
+        }
+        .key-partnerships {
+            grid-column: 1;
+            grid-row: 4;
+            background-color: #FFF8DC;
+        }
+        .cost-structure {
+            grid-column: 2 / span 2;
+            grid-row: 4;
+            background-color: #F5FFFA;
+        }
+        .save-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .save-btn:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 768px) {
+            .canvas {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(9, auto);
+                height: auto;
+            }
+            .block {
+                grid-column: 1 !important;
+                grid-row: auto !important;
+                min-height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>商业模式画布</h1>
+        <div class="canvas">
+            <div class="block customer-segments">
+                <div class="block-header">客户细分</div>
+                <div class="block-content">
+                    <textarea placeholder="描述你的目标客户群体...">1. 个人消费者
+2. 中小企业
+3. 大型企业</textarea>
+                </div>
+            </div>
+            <div class="block value-propositions">
+                <div class="block-header">价值主张</div>
+                <div class="block-content">
+                    <textarea placeholder="描述你为客户提供的价值...">- 高质量的产品
+- 24/7客户支持
+- 定制化解决方案
+- 成本节约</textarea>
+                </div>
+            </div>
+            <div class="block channels">
+                <div class="block-header">渠道通路</div>
+                <div class="block-content">
+                    <textarea placeholder="描述你如何接触客户...">1. 线上销售平台
+2. 直销团队
+3. 分销商网络
+4. 社交媒体</textarea>
+                </div>
+            </div>
+            <div class="block customer-relationships">
+                <div class="block-header">客户关系</div>
+                <div class="block-content">
+                    <textarea placeholder="描述你如何与客户互动...">- 自助服务
+- 专属客户经理
+- 社区支持
+- 定期客户回访</textarea>
+                </div>
+            </div>
+            <div class="block revenue-streams">
+                <div class="block-header">收入来源</div>
+                <div class="block-content">
+                    <textarea placeholder="描述你的收入模式...">1. 产品销售
+2. 订阅服务
+3. 广告收入
+4. 授权费用</textarea>
+                </div>
+            </div>
+            <div class="block key-resources">
+                <div class="block-header">核心资源</div>
+                <div class="block-content">
+                    <textarea placeholder="描述你的关键资产...">- 专利技术
+- 专业团队
+- 品牌声誉
+- 数据中心</textarea>
+                </div>
+            </div>
+            <div class="block key-activities">
+                <div class="block-header">关键业务</div>
+                <div class="block-content">
+                    <textarea placeholder="描述你的主要活动...">1. 产品研发
+2. 市场营销
+3. 客户服务
+4. 供应链管理</textarea>
+                </div>
+            </div>
+            <div class="block key-partnerships">
+                <div class="block-header">重要合作</div>
+                <div class="block-content">
+                    <textarea placeholder="描述你的关键合作伙伴...">- 技术供应商
+- 物流公司
+- 营销机构
+- 战略联盟</textarea>
+                </div>
+            </div>
+            <div class="block cost-structure">
+                <div class="block-header">成本结构</div>
+                <div class="block-content">
+                    <textarea placeholder="描述你的主要成本...">1. 研发成本
+2. 人力成本
+3. 营销费用
+4. 运营成本
+5. 基础设施</textarea>
+                </div>
+            </div>
+        </div>
+        <button class="save-btn">保存商业模式画布</button>
+    </div>
+
+    <script>
+        document.querySelector('.save-btn').addEventListener('click', function() {
+            alert('商业模式画布已保存！');
+            // 这里可以添加实际保存逻辑，如发送到服务器或保存到本地存储
+        });
+    </script>
+</body>
+</html>
+```
+
+## 功能说明
+
+1. **完整商业模式画布**：包含了商业模式画布的9个关键要素：
+   - 客户细分
+   - 价值主张
+   - 渠道通路
+   - 客户关系
+   - 收入来源
+   - 核心资源
+   - 关键业务
+   - 重要合作
+   - 成本结构
+
+2. **响应式设计**：在移动设备上会自动调整为垂直布局
+
+3. **交互功能**：
+   - 每个区块都有可编辑的文本区域
+   - 保存按钮可以保存画布内容（示例中只是弹出提示）
+
+4. **视觉设计**：
+   - 不同区块使用不同背景色区分
+   - 清晰的标题和布局
+   - 简洁现代的用户界面
+
+您可以将此代码保存为HTML文件并在浏览器中打开，或者集成到您的网站中。如需进一步定制，可以修改CSS样式或添加更多JavaScript功能。
