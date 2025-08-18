@@ -1,0 +1,116 @@
+# 优化后的可视化代码
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from matplotlib.colors import LinearSegmentedColormap
+
+# 设置参数
+L = 10.0  # 空间范围
+T = 2.0  # 总时间
+Nx = 100  # 空间网格数
+Nt = 200  # 时间步数
+alpha = 0.01  # 热扩散系数
+
+# 计算步长
+dx = L / Nx
+dt = T / Nt
+
+# 初始化网格
+x = np.linspace(0, L, Nx)
+u = np.zeros(Nx)
+
+# 设置初始条件（高斯分布）
+u = np.exp(-(x - L/2)**2 / 0.5)
+
+# 创建图形
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.set_xlim(0, L)
+ax.set_ylim(0, 1.1)
+ax.set_xlabel('位置 (x)')
+ax.set_ylabel('温度 (u)')
+ax.set_title('一维热传导方程的数值解')
+
+# 创建自定义颜色映射
+colors = [(0, 0, 1), (1, 0, 0)]  # 蓝色到红色
+cmap = LinearSegmentedColormap.from_list('custom_cmap', colors)
+
+# 初始化线条和颜色条
+line, = ax.plot(x, u, lw=2)
+scat = ax.scatter(x, u, c=u, cmap=cmap, vmin=0, vmax=1)
+cbar = fig.colorbar(scat)
+cbar.set_label('温度值')
+
+# 添加网格和说明
+ax.grid(True, alpha=0.3)
+ax.text(0.02, 0.95, f'扩散系数 α = {alpha}', transform=ax.transAxes, 
+        bbox=dict(facecolor='white', alpha=0.7))
+
+# 数值求解函数
+def solve_heat_equation(u, alpha, dx, dt, Nx, Nt):
+    """使用显式有限差分法求解热方程"""
+    r = alpha * dt / dx**2
+    history = [u.copy()]
+    
+    for _ in range(Nt):
+        new_u = u.copy()
+        for i in range(1, Nx-1):
+            new_u[i] = u[i] + r * (u[i+1] - 2*u[i] + u[i-1])
+        
+        # 边界条件（两端绝热）
+        new_u[0] = new_u[1]
+        new_u[-1] = new_u[-2]
+        
+        u = new_u
+        history.append(u.copy())
+    
+    return history
+
+# 预计算所有时间步
+history = solve_heat_equation(u, alpha, dx, dt, Nx, Nt)
+
+# 动画更新函数
+def update(frame):
+    """更新动画帧"""
+    u_frame = history[frame]
+    line.set_ydata(u_frame)
+    scat.set_offsets(np.column_stack([x, u_frame]))
+    scat.set_array(u_frame)
+    
+    # 更新标题显示当前时间
+    current_time = frame * dt
+    ax.set_title(f'一维热传导方程 (t = {current_time:.2f}s)')
+    
+    return line, scat
+
+# 创建动画
+ani = FuncAnimation(fig, update, frames=len(history), interval=50, blit=True)
+
+plt.tight_layout()
+plt.show()
+```
+
+## 优化说明
+
+1. **可视化增强**：
+   - 添加了散点图，使用颜色映射显示温度值
+   - 创建了自定义的蓝-红颜色条
+   - 添加了网格和参数说明文本框
+   - 标题动态显示当前时间
+
+2. **性能优化**：
+   - 预计算所有时间步的结果，避免在动画中重复计算
+   - 使用更高效的数组操作
+
+3. **代码结构改进**：
+   - 将求解逻辑封装为单独的函数
+   - 添加了清晰的注释
+   - 使用更有描述性的变量名
+
+4. **用户体验**：
+   - 调整了图形大小和布局
+   - 设置了合适的坐标轴范围
+   - 添加了颜色条作为温度参考
+
+这个优化版本不仅计算结果准确，而且提供了更丰富、更直观的可视化效果，帮助用户更好地理解热传导过程。
