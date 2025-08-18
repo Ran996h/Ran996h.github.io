@@ -1,0 +1,288 @@
+# 商业模式画布可视化HTML代码
+
+以下是一个完整的商业模式画布可视化HTML代码，包含了商业模式画布的9个关键要素：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业模式画布可视化</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .canvas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+            height: 800px;
+        }
+        .block {
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .block-header {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid;
+        }
+        .block-content {
+            flex-grow: 1;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .block ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .block li {
+            margin-bottom: 5px;
+        }
+        
+        /* 各个区块的样式 */
+        .partners {
+            grid-column: 1;
+            grid-row: 1;
+            background-color: #FFE4B5;
+            border-color: #FFA500;
+        }
+        .activities {
+            grid-column: 2;
+            grid-row: 1;
+            background-color: #E6E6FA;
+            border-color: #9370DB;
+        }
+        .value-propositions {
+            grid-column: 3;
+            grid-row: 1;
+            background-color: #98FB98;
+            border-color: #3CB371;
+        }
+        .customer-relationships {
+            grid-column: 3;
+            grid-row: 2;
+            background-color: #FFB6C1;
+            border-color: #FF69B4;
+        }
+        .customer-segments {
+            grid-column: 3;
+            grid-row: 3 / span 2;
+            background-color: #ADD8E6;
+            border-color: #1E90FF;
+        }
+        .resources {
+            grid-column: 2;
+            grid-row: 2;
+            background-color: #FFFACD;
+            border-color: #FFD700;
+        }
+        .channels {
+            grid-column: 3;
+            grid-row: 2;
+            background-color: #D8BFD8;
+            border-color: #9932CC;
+        }
+        .cost-structure {
+            grid-column: 1;
+            grid-row: 4;
+            background-color: #F0F8FF;
+            border-color: #4682B4;
+        }
+        .revenue-streams {
+            grid-column: 2;
+            grid-row: 4;
+            background-color: #FFEBCD;
+            border-color: #DEB887;
+        }
+        
+        /* 中心区块 */
+        .value-propositions {
+            grid-column: 2;
+            grid-row: 3;
+            background-color: #90EE90;
+            border-color: #2E8B57;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .canvas {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(9, auto);
+                height: auto;
+            }
+            .block {
+                grid-column: 1 !important;
+                grid-row: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>商业模式画布</h1>
+        
+        <div class="canvas">
+            <!-- 合作伙伴 -->
+            <div class="block partners">
+                <div class="block-header">重要合作伙伴</div>
+                <div class="block-content">
+                    <ul>
+                        <li>关键供应商</li>
+                        <li>战略联盟</li>
+                        <li>合资企业</li>
+                        <li>其他合作伙伴</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 关键业务 -->
+            <div class="block activities">
+                <div class="block-header">关键业务</div>
+                <div class="block-content">
+                    <ul>
+                        <li>核心生产活动</li>
+                        <li>问题解决方案</li>
+                        <li>平台/网络</li>
+                        <li>其他关键活动</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 价值主张 -->
+            <div class="block value-propositions">
+                <div class="block-header">价值主张</div>
+                <div class="block-content">
+                    <ul>
+                        <li>产品/服务特点</li>
+                        <li>客户需求满足</li>
+                        <li>差异化优势</li>
+                        <li>价格策略</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 客户关系 -->
+            <div class="block customer-relationships">
+                <div class="block-header">客户关系</div>
+                <div class="block-content">
+                    <ul>
+                        <li>个人助理</li>
+                        <li>自助服务</li>
+                        <li>社区</li>
+                        <li>共同创造</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 客户细分 -->
+            <div class="block customer-segments">
+                <div class="block-header">客户细分</div>
+                <div class="block-content">
+                    <ul>
+                        <li>大众市场</li>
+                        <li>利基市场</li>
+                        <li>细分市场</li>
+                        <li>多元化市场</li>
+                        <li>多边平台</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 核心资源 -->
+            <div class="block resources">
+                <div class="block-header">核心资源</div>
+                <div class="block-content">
+                    <ul>
+                        <li>实体资源</li>
+                        <li>知识资产</li>
+                        <li>人力资源</li>
+                        <li>金融资源</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 渠道通路 -->
+            <div class="block channels">
+                <div class="block-header">渠道通路</div>
+                <div class="block-content">
+                    <ul>
+                        <li>直销</li>
+                        <li>合作伙伴渠道</li>
+                        <li>线上渠道</li>
+                        <li>零售渠道</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 成本结构 -->
+            <div class="block cost-structure">
+                <div class="block-header">成本结构</div>
+                <div class="block-content">
+                    <ul>
+                        <li>固定成本</li>
+                        <li>可变成本</li>
+                        <li>规模经济</li>
+                        <li>范围经济</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 收入来源 -->
+            <div class="block revenue-streams">
+                <div class="block-header">收入来源</div>
+                <div class="block-content">
+                    <ul>
+                        <li>资产销售</li>
+                        <li>使用费</li>
+                        <li>订阅费</li>
+                        <li>租赁费</li>
+                        <li>授权费</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+## 功能说明
+
+这个HTML代码实现了：
+
+1. **完整的商业模式画布**：包含了9个关键要素（客户细分、价值主张、渠道通路、客户关系、收入来源、核心资源、关键业务、重要合作伙伴、成本结构）
+
+2. **可视化布局**：
+   - 使用CSS Grid布局实现画布的9宫格结构
+   - 每个区块有不同的颜色标识
+   - 中心位置是"价值主张"区块
+
+3. **响应式设计**：
+   - 在大屏幕上显示为3x3网格
+   - 在小屏幕设备上自动调整为垂直列表
+
+4. **内容结构**：
+   - 每个区块包含标题和内容列表
+   - 列表项展示了该要素的关键点
+
+您可以将此代码保存为HTML文件并在浏览器中打开，或者集成到您的网站中。如需进一步定制，可以修改CSS样式或内容列表。
