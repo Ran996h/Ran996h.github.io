@@ -1,0 +1,148 @@
+# HTML 小游戏：猜数字
+
+下面是一个简单的猜数字HTML小游戏代码。玩家需要在1-100之间猜一个随机生成的数字。
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .game-container {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            padding: 8px 15px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        #message {
+            margin: 15px 0;
+            font-weight: bold;
+            min-height: 24px;
+        }
+        #attempts {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>猜数字游戏</h1>
+        <p>我已经想好了一个1到100之间的数字，你能猜出来吗？</p>
+        
+        <div>
+            <input type="number" id="guessInput" min="1" max="100" placeholder="输入你的猜测">
+            <button id="guessButton">猜一猜</button>
+        </div>
+        
+        <div id="message"></div>
+        <div id="attempts">尝试次数: 0</div>
+        
+        <button id="restartButton" style="display: none;">再玩一次</button>
+    </div>
+
+    <script>
+        // 游戏变量
+        let targetNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        
+        // DOM元素
+        const guessInput = document.getElementById('guessInput');
+        const guessButton = document.getElementById('guessButton');
+        const message = document.getElementById('message');
+        const attemptsDisplay = document.getElementById('attempts');
+        const restartButton = document.getElementById('restartButton');
+        
+        // 猜测按钮点击事件
+        guessButton.addEventListener('click', checkGuess);
+        
+        // 输入框回车事件
+        guessInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkGuess();
+            }
+        });
+        
+        // 重新开始按钮
+        restartButton.addEventListener('click', restartGame);
+        
+        // 检查猜测
+        function checkGuess() {
+            const userGuess = parseInt(guessInput.value);
+            
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.textContent = "请输入1到100之间的有效数字！";
+                message.style.color = "red";
+                return;
+            }
+            
+            attempts++;
+            attemptsDisplay.textContent = `尝试次数: ${attempts}`;
+            
+            if (userGuess === targetNumber) {
+                message.textContent = `恭喜你！你猜对了！数字就是 ${targetNumber}。`;
+                message.style.color = "green";
+                endGame();
+            } else if (userGuess < targetNumber) {
+                message.textContent = "太小了，再试一次！";
+                message.style.color = "blue";
+            } else {
+                message.textContent = "太大了，再试一次！";
+                message.style.color = "blue";
+            }
+            
+            guessInput.value = "";
+            guessInput.focus();
+        }
+        
+        // 游戏结束
+        function endGame() {
+            guessInput.disabled = true;
+            guessButton.disabled = true;
+            restartButton.style.display = "inline-block";
+        }
+        
+        // 重新开始游戏
+        function restartGame() {
+            targetNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            message.textContent = "";
+            attemptsDisplay.textContent = "尝试次数: 0";
+            guessInput.disabled = false;
+            guessButton.disabled = false;
+            restartButton.style.display = "none";
+            guessInput.focus();
+        }
+    </script>
+</body>
+</html>
+```
+
+## 游戏说明
+
+1. 游戏会随机生成一个1-100之间的数字
+2. 玩家在输入框中输入猜测的数字
+3. 游戏会提示猜测是"太大"还是"太小"
+4. 猜中后显示恭喜信息并统计尝试次数
+5. 可以点击"再玩一次"按钮重新开始游戏
+
+## 如何使用
+
+1. 将上面的代码复制到一个文本编辑器中
+2. 保存为`.html`文件（例如`guess-number.html`）
+3. 在浏览器中打开该文件即可开始游戏
+
+您可以根据需要修改样式、数字范围或添加更多功能来扩展这个小游戏。
