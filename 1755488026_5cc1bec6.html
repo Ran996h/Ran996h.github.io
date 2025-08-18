@@ -1,0 +1,121 @@
+# 优化后的可视化代码
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from matplotlib.patches import Rectangle
+from matplotlib.collections import PatchCollection
+
+# 设置画布
+plt.style.use('seaborn')
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.set_xlim(0, 100)
+ax.set_ylim(0, 60)
+ax.set_title('Genetic Algorithm Optimization Process', fontsize=14)
+ax.set_xlabel('Generation', fontsize=12)
+ax.set_ylabel('Fitness Value', fontsize=12)
+ax.grid(True, alpha=0.3)
+
+# 初始化数据
+generations = np.arange(1, 101)
+best_fitness = np.zeros(100)
+avg_fitness = np.zeros(100)
+population = []
+
+# 创建柱状图元素
+bars = ax.bar([], [], color='skyblue', alpha=0.7, width=0.8)
+best_line, = ax.plot([], [], 'r-', lw=2, label='Best Fitness')
+avg_line, = ax.plot([], [], 'b--', lw=2, label='Average Fitness')
+ax.legend(loc='upper right')
+
+# 创建个体可视化元素
+individuals = []
+for i in range(20):
+    rect = Rectangle((0, 0), 0.8, 0.8, color='skyblue', alpha=0.7)
+    individuals.append(rect)
+    ax.add_patch(rect)
+
+# 初始化函数
+def init():
+    ax.set_xlim(0, 100)
+    ax.set_ylim(0, 60)
+    best_line.set_data([], [])
+    avg_line.set_data([], [])
+    return [best_line, avg_line] + individuals
+
+# 更新函数
+def update(frame):
+    # 模拟遗传算法过程
+    if frame == 0:
+        best_fitness[frame] = np.random.uniform(10, 20)
+        avg_fitness[frame] = np.random.uniform(5, 15)
+    else:
+        best_fitness[frame] = best_fitness[frame-1] + np.random.uniform(0, 2)
+        avg_fitness[frame] = avg_fitness[frame-1] + np.random.uniform(0, 1.5)
+    
+    # 更新曲线
+    best_line.set_data(generations[:frame+1], best_fitness[:frame+1])
+    avg_line.set_data(generations[:frame+1], avg_fitness[:frame+1])
+    
+    # 更新个体位置和颜色
+    for i, rect in enumerate(individuals):
+        x = 5 + (i % 10) * 9
+        y = 40 - (i // 10) * 15
+        rect.set_xy((x, y))
+        
+        # 根据适应度改变颜色
+        fitness = np.random.uniform(0, 1)
+        if fitness > 0.8:
+            rect.set_color('limegreen')
+        elif fitness > 0.5:
+            rect.set_color('gold')
+        else:
+            rect.set_color('tomato')
+        
+        # 根据代数改变大小
+        size = 0.5 + 0.5 * (frame / 100)
+        rect.set_width(size)
+        rect.set_height(size)
+    
+    # 添加当前代数的文本
+    if frame % 10 == 0:
+        ax.text(5, 55, f'Generation: {frame+1}', fontsize=12, bbox=dict(facecolor='white', alpha=0.8))
+    
+    return [best_line, avg_line] + individuals
+
+# 创建动画
+ani = FuncAnimation(fig, update, frames=100, init_func=init, 
+                    blit=True, interval=200, repeat_delay=2000)
+
+plt.tight_layout()
+plt.show()
+```
+
+## 优化说明
+
+1. **可视化元素丰富**：
+   - 添加了代表个体的矩形元素，用不同颜色表示适应度高低
+   - 增加了动态文本显示当前代数
+   - 个体大小随代数增加而增大，象征进化过程
+
+2. **性能优化**：
+   - 使用blit技术只重绘变化的部分
+   - 预先生成所有图形元素，避免重复创建
+
+3. **美观性提升**：
+   - 使用seaborn风格
+   - 添加了网格线和适当的透明度
+   - 使用更协调的颜色方案
+
+4. **信息展示**：
+   - 同时显示最佳适应度和平均适应度曲线
+   - 添加了图例说明
+   - 坐标轴标签更清晰
+
+5. **动画效果**：
+   - 平滑的过渡动画
+   - 合理的帧间隔(200ms)
+   - 动画结束后有2秒的重复延迟
+
+这个可视化清晰地展示了遗传算法的优化过程，包括种群中个体的适应度分布和整体进化趋势。
