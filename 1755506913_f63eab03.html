@@ -1,0 +1,372 @@
+# 商业模式画布可视化HTML代码
+
+以下是一个完整的商业模式画布可视化HTML代码，包含了商业模式画布的9个关键要素：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业模式画布可视化</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .canvas {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .block {
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .block h2 {
+            margin-top: 0;
+            font-size: 18px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .block ul {
+            padding-left: 20px;
+        }
+        .block li {
+            margin-bottom: 8px;
+        }
+        .key-partners {
+            grid-column: 1;
+            grid-row: 1;
+            background-color: #FFD700;
+        }
+        .key-activities {
+            grid-column: 2;
+            grid-row: 1;
+            background-color: #FFA07A;
+        }
+        .value-propositions {
+            grid-column: 3;
+            grid-row: 1;
+            background-color: #98FB98;
+        }
+        .customer-relationships {
+            grid-column: 1;
+            grid-row: 2;
+            background-color: #ADD8E6;
+        }
+        .customer-segments {
+            grid-column: 2;
+            grid-row: 2;
+            background-color: #FFB6C1;
+        }
+        .channels {
+            grid-column: 3;
+            grid-row: 2;
+            background-color: #DDA0DD;
+        }
+        .key-resources {
+            grid-column: 1;
+            grid-row: 3;
+            background-color: #F0E68C;
+        }
+        .cost-structure {
+            grid-column: 2;
+            grid-row: 3;
+            background-color: #CD5C5C;
+            color: white;
+        }
+        .revenue-streams {
+            grid-column: 3;
+            grid-row: 3;
+            background-color: #90EE90;
+        }
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .export-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>商业模式画布可视化</h1>
+        
+        <div class="controls">
+            <button id="save-btn">保存画布</button>
+            <button id="load-btn">加载画布</button>
+            <button id="export-btn">导出为图片</button>
+            <button id="reset-btn">重置画布</button>
+        </div>
+        
+        <div class="canvas" id="business-model-canvas">
+            <!-- 关键合作伙伴 -->
+            <div class="block key-partners">
+                <h2>关键合作伙伴</h2>
+                <ul id="key-partners-list">
+                    <li>供应商</li>
+                    <li>战略联盟</li>
+                    <li>合资企业</li>
+                </ul>
+                <textarea placeholder="添加新的合作伙伴..."></textarea>
+                <button class="add-btn">添加</button>
+            </div>
+            
+            <!-- 关键业务 -->
+            <div class="block key-activities">
+                <h2>关键业务</h2>
+                <ul id="key-activities-list">
+                    <li>产品开发</li>
+                    <li>市场营销</li>
+                    <li>客户服务</li>
+                </ul>
+                <textarea placeholder="添加新的关键业务..."></textarea>
+                <button class="add-btn">添加</button>
+            </div>
+            
+            <!-- 价值主张 -->
+            <div class="block value-propositions">
+                <h2>价值主张</h2>
+                <ul id="value-propositions-list">
+                    <li>创新性</li>
+                    <li>性能</li>
+                    <li>定制化</li>
+                </ul>
+                <textarea placeholder="添加新的价值主张..."></textarea>
+                <button class="add-btn">添加</button>
+            </div>
+            
+            <!-- 客户关系 -->
+            <div class="block customer-relationships">
+                <h2>客户关系</h2>
+                <ul id="customer-relationships-list">
+                    <li>个人助理</li>
+                    <li>自助服务</li>
+                    <li>社区</li>
+                </ul>
+                <textarea placeholder="添加新的客户关系..."></textarea>
+                <button class="add-btn">添加</button>
+            </div>
+            
+            <!-- 客户细分 -->
+            <div class="block customer-segments">
+                <h2>客户细分</h2>
+                <ul id="customer-segments-list">
+                    <li>大众市场</li>
+                    <li>利基市场</li>
+                    <li>多元化市场</li>
+                </ul>
+                <textarea placeholder="添加新的客户细分..."></textarea>
+                <button class="add-btn">添加</button>
+            </div>
+            
+            <!-- 渠道通路 -->
+            <div class="block channels">
+                <h2>渠道通路</h2>
+                <ul id="channels-list">
+                    <li>自有渠道</li>
+                    <li>合作伙伴渠道</li>
+                    <li>线上渠道</li>
+                </ul>
+                <textarea placeholder="添加新的渠道..."></textarea>
+                <button class="add-btn">添加</button>
+            </div>
+            
+            <!-- 核心资源 -->
+            <div class="block key-resources">
+                <h2>核心资源</h2>
+                <ul id="key-resources-list">
+                    <li>实体资产</li>
+                    <li>知识资产</li>
+                    <li>人力资源</li>
+                </ul>
+                <textarea placeholder="添加新的核心资源..."></textarea>
+                <button class="add-btn">添加</button>
+            </div>
+            
+            <!-- 成本结构 -->
+            <div class="block cost-structure">
+                <h2>成本结构</h2>
+                <ul id="cost-structure-list">
+                    <li>固定成本</li>
+                    <li>可变成本</li>
+                    <li>规模经济</li>
+                </ul>
+                <textarea placeholder="添加新的成本项目..."></textarea>
+                <button class="add-btn">添加</button>
+            </div>
+            
+            <!-- 收入来源 -->
+            <div class="block revenue-streams">
+                <h2>收入来源</h2>
+                <ul id="revenue-streams-list">
+                    <li>资产销售</li>
+                    <li>使用收费</li>
+                    <li>订阅收费</li>
+                </ul>
+                <textarea placeholder="添加新的收入来源..."></textarea>
+                <button class="add-btn">添加</button>
+            </div>
+        </div>
+        
+        <div class="export-section">
+            <h2>导出选项</h2>
+            <button id="print-btn">打印画布</button>
+            <button id="pdf-btn">导出为PDF</button>
+        </div>
+    </div>
+
+    <script>
+        // 添加项目功能
+        document.querySelectorAll('.add-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const textarea = this.previousElementSibling;
+                const list = this.parentElement.querySelector('ul');
+                
+                if (textarea.value.trim() !== '') {
+                    const newItem = document.createElement('li');
+                    newItem.textContent = textarea.value;
+                    list.appendChild(newItem);
+                    textarea.value = '';
+                }
+            });
+        });
+        
+        // 保存画布功能
+        document.getElementById('save-btn').addEventListener('click', function() {
+            const canvasData = {};
+            document.querySelectorAll('.block').forEach(block => {
+                const blockId = block.querySelector('ul').id;
+                const items = Array.from(block.querySelectorAll('li')).map(li => li.textContent);
+                canvasData[blockId] = items;
+            });
+            
+            localStorage.setItem('businessModelCanvas', JSON.stringify(canvasData));
+            alert('画布已保存到本地存储！');
+        });
+        
+        // 加载画布功能
+        document.getElementById('load-btn').addEventListener('click', function() {
+            const savedData = localStorage.getItem('businessModelCanvas');
+            if (savedData) {
+                const canvasData = JSON.parse(savedData);
+                
+                for (const [blockId, items] of Object.entries(canvasData)) {
+                    const list = document.getElementById(blockId);
+                    list.innerHTML = '';
+                    
+                    items.forEach(itemText => {
+                        const newItem = document.createElement('li');
+                        newItem.textContent = itemText;
+                        list.appendChild(newItem);
+                    });
+                }
+                
+                alert('画布已从本地存储加载！');
+            } else {
+                alert('没有找到保存的画布数据！');
+            }
+        });
+        
+        // 重置画布功能
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            if (confirm('确定要重置画布吗？所有内容将被清除。')) {
+                document.querySelectorAll('.block ul').forEach(list => {
+                    list.innerHTML = '';
+                });
+            }
+        });
+        
+        // 导出为图片功能（简化版，实际实现可能需要html2canvas库）
+        document.getElementById('export-btn').addEventListener('click', function() {
+            alert('在实际应用中，这里会使用html2canvas等库将画布导出为图片');
+        });
+        
+        // 打印功能
+        document.getElementById('print-btn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // 导出为PDF功能（简化版）
+        document.getElementById('pdf-btn').addEventListener('click', function() {
+            alert('在实际应用中，这里会使用jsPDF等库将画布导出为PDF');
+        });
+    </script>
+</body>
+</html>
+```
+
+## 功能说明
+
+这个HTML代码实现了以下功能：
+
+1. **可视化商业模式画布**：按照标准商业模式画布的9个模块布局，每个模块有不同的颜色区分
+
+2. **交互功能**：
+   - 每个模块可以添加新的项目
+   - 保存当前画布状态到浏览器本地存储
+   - 从本地存储加载之前保存的画布
+   - 重置画布内容
+   - 导出为图片/PDF（需要实际实现）
+
+3. **9个商业模式画布模块**：
+   - 关键合作伙伴
+   - 关键业务
+   - 价值主张
+   - 客户关系
+   - 客户细分
+   - 渠道通路
+   - 核心资源
+   - 成本结构
+   - 收入来源
+
+## 使用说明
+
+1. 将代码保存为HTML文件并在浏览器中打开
+2. 在每个模块的文本框中输入内容，点击"添加"按钮添加到对应模块
+3. 使用"保存画布"按钮保存当前状态
+4. 使用"加载画布"按钮恢复之前保存的状态
+5. 使用"重置画布"按钮清除所有内容
+
+注意：实际导出为图片/PDF功能需要集成相应的JavaScript库（如html2canvas和jsPDF）。
