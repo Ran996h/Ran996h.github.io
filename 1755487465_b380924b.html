@@ -1,0 +1,139 @@
+# 优化代码可视化
+
+为了使代码更易于理解和可视化，我将对代码进行以下优化：
+
+1. 添加清晰的注释
+2. 使用有意义的变量名
+3. 添加可视化输出
+4. 结构化代码逻辑
+
+## 优化后的代码
+
+```python
+"""
+股票交易策略分析工具
+该工具用于分析股票交易策略的盈利情况
+"""
+
+def calculate_profit(prices, fee):
+    """
+    计算给定价格序列和手续费下的最大利润
+    
+    参数:
+        prices (list): 股票每日价格列表
+        fee (float): 每次交易的手续费
+    
+    返回:
+        tuple: (总利润, 交易次数, 交易详情)
+    """
+    if not prices or len(prices) < 2:
+        return 0, 0, []
+    
+    total_profit = 0
+    transactions = []
+    buy_price = prices[0]  # 初始买入价格为第一天价格
+    
+    for i in range(1, len(prices)):
+        current_price = prices[i]
+        # 如果当前价格高于买入价加上手续费，考虑卖出
+        if current_price > buy_price + fee:
+            profit = current_price - buy_price - fee
+            total_profit += profit
+            transactions.append({
+                'buy_day': i - 1,
+                'buy_price': buy_price,
+                'sell_day': i,
+                'sell_price': current_price,
+                'profit': profit
+            })
+            buy_price = current_price  # 卖出后立即以当前价格买入
+        # 如果当前价格低于买入价，更新买入价为更低价
+        elif current_price < buy_price:
+            buy_price = current_price
+    
+    return total_profit, len(transactions), transactions
+
+def visualize_results(prices, profit, transactions):
+    """
+    可视化交易结果
+    
+    参数:
+        prices (list): 股票价格序列
+        profit (float): 总利润
+        transactions (list): 交易详情列表
+    """
+    import matplotlib.pyplot as plt
+    
+    # 创建图表
+    plt.figure(figsize=(12, 6))
+    
+    # 绘制价格曲线
+    plt.plot(prices, label='Stock Price', color='blue', marker='o')
+    
+    # 标记买入和卖出点
+    for trans in transactions:
+        buy_day = trans['buy_day']
+        sell_day = trans['sell_day']
+        plt.scatter(buy_day, prices[buy_day], color='green', s=100, label='Buy' if buy_day == transactions[0]['buy_day'] else "", zorder=5)
+        plt.scatter(sell_day, prices[sell_day], color='red', s=100, label='Sell' if sell_day == transactions[0]['sell_day'] else "", zorder=5)
+        # 绘制买卖之间的连线
+        plt.plot([buy_day, sell_day], [prices[buy_day], prices[sell_day]], color='gray', linestyle='--')
+    
+    # 添加标题和标签
+    plt.title(f'Stock Trading Strategy\nTotal Profit: {profit:.2f}, Transactions: {len(transactions)}')
+    plt.xlabel('Day')
+    plt.ylabel('Price')
+    plt.legend()
+    plt.grid(True)
+    
+    # 显示图表
+    plt.tight_layout()
+    plt.show()
+
+def main():
+    # 示例数据
+    stock_prices = [100, 105, 102, 108, 110, 115, 112, 120, 118, 125]
+    transaction_fee = 2.0  # 每次交易的手续费
+    
+    # 计算利润和交易
+    total_profit, num_transactions, transaction_details = calculate_profit(stock_prices, transaction_fee)
+    
+    # 打印结果
+    print(f"总利润: {total_profit:.2f}")
+    print(f"交易次数: {num_transactions}")
+    print("\n交易详情:")
+    for i, trans in enumerate(transaction_details, 1):
+        print(f"交易 {i}:")
+        print(f"  买入日: {trans['buy_day']}, 价格: {trans['buy_price']:.2f}")
+        print(f"  卖出日: {trans['sell_day']}, 价格: {trans['sell_price']:.2f}")
+        print(f"  利润: {trans['profit']:.2f}")
+    
+    # 可视化结果
+    visualize_results(stock_prices, total_profit, transaction_details)
+
+if __name__ == "__main__":
+    main()
+```
+
+## 优化说明
+
+1. **函数分解**：
+   - 将代码分解为`calculate_profit`和`visualize_results`两个主要函数，每个函数只做一件事
+   - 添加了`main()`函数作为程序入口
+
+2. **可视化增强**：
+   - 使用matplotlib绘制价格曲线和交易点
+   - 绿色点表示买入，红色点表示卖出
+   - 用虚线连接买卖点，显示交易区间
+   - 图表包含标题、轴标签和图例
+
+3. **输出改进**：
+   - 打印详细的交易信息，包括每次交易的买入/卖出日和价格
+   - 显示总利润和交易次数
+
+4. **代码可读性**：
+   - 添加了详细的函数和参数注释
+   - 使用有意义的变量名
+   - 保持一致的代码风格
+
+这个优化版本不仅实现了原始代码的功能，还提供了直观的可视化输出和更清晰的代码结构，便于理解和扩展。
