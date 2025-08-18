@@ -1,0 +1,227 @@
+# 屿廊咖啡品牌探索小游戏
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>屿廊咖啡品牌探索</title>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #f8f4e9;
+            color: #5a4a3a;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #8b6b46;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .intro {
+            background-color: #f0e6d2;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .question {
+            font-weight: bold;
+            color: #8b6b46;
+            margin-top: 25px;
+        }
+        .answer {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #d4b483;
+        }
+        .highlight {
+            background-color: #f0e6d2;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .game-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f0e6;
+            border-radius: 8px;
+        }
+        .game-title {
+            text-align: center;
+            color: #8b6b46;
+            margin-bottom: 20px;
+        }
+        .game-option {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #d4b483;
+        }
+        .game-option:hover {
+            background-color: #f0e6d2;
+            transform: translateY(-2px);
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d4b483;
+            color: white;
+            border-radius: 5px;
+            display: none;
+        }
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #8b6b46;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #6d5435;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>屿廊咖啡品牌故事</h1>
+        
+        <div class="intro">
+            欢迎来到"屿廊咖啡"的品牌探索页面。这是一家位于青岛黄岛区的精品咖啡店，店主希望打造一个专业、安静、能让人完全放松下来的城市角落。
+        </div>
+        
+        <div class="question">1. 您的店铺/品牌全称是？</div>
+        <div class="answer">我开的咖啡店叫"<span class="highlight">屿廊咖啡</span>"。"屿"是岛屿的屿，因为我们在青岛嘛；"廊"是走廊的廊，希望这里能成为一个让人歇歇脚、有归属感的空间。</div>
+        
+        <div class="question">2. 您所在的行业和城市区域是？</div>
+        <div class="answer">我在 <span class="highlight">青岛市黄岛区</span>，开了一家精品咖啡店。具体位置在靠近石油大学南门的一个新建住宅区底商，不算临街主路，位置有点偏。</div>
+        
+        <div class="question">3. 请简单描述您的核心产品或服务。</div>
+        <div class="answer">
+            我们主打的是<span class="highlight">高品质的手冲单品咖啡</span>，这是我的招牌，每一款豆子我都能跟客人聊上半天，从产地到风味。<br><br>
+            当然，为了照顾大众口味，也有拿铁、美式这些常规的意式咖啡。<br><br>
+            为了有点特色，我还自己研发了几款"<span class="highlight">城市特调</span>"，比如"海盐芝士冷萃"和"啤酒花风味气泡美式"，算是结合了青岛的海洋和啤酒元素。<br><br>
+            另外，店里也提供一些我自己烘焙的甜点，主要是巴斯克蛋糕和提拉米苏，卖得还不错。
+        </div>
+        
+        <div class="question">4. 您的主要服务对象（目标客户）是谁？请尽可能详细地描述他们。</div>
+        <div class="answer">
+            主要想吸引两类人吧：<br><br>
+            第一类是<span class="highlight">旁边大学城的学生</span>，特别是研究生或者准备考研考公的。他们需要一个安静的地方自习或小组讨论，对价格不那么敏感，但对环境和咖啡品质有一定要求。<br><br>
+            第二类是<span class="highlight">附近几个新建高档小区的年轻上班族</span>，大概25-35岁。他们对生活品质有点追求，愿意花钱喝一杯好咖啡，可能会把这里当成家和公司之外的"第三空间"，周末会来放松或者处理点工作。<br><br>
+            偶尔也会有来金沙滩玩的游客顺路找到这里，但不是我们的主要目标。
+        </div>
+        
+        <div class="question">5. 相比竞争对手（比如其他独立咖啡馆或星巴克等连锁品牌），您认为自己最独特的地方（独特卖点）是什么？</div>
+        <div class="answer">
+            我觉得最独特的是三点：<br><br>
+            1. <span class="highlight">我本人对手冲咖啡的专业和热情</span>。 我可以跟顾客面对面交流，根据他们的口味推荐豆子，这是那些连锁店标准化的服务给不了的"人情味"和"专业感"。<br><br>
+            2. <span class="highlight">我们店的环境</span>。 特别安静、舒服，装修是原木风，有很多绿植，很适合长时间待着看书、用电脑。不像连锁店那么嘈杂。<br><br>
+            3. <span class="highlight">我们的"城市特调"</span>。 "海盐"和"啤酒花"系列算是独一份，希望能成为一个让顾客记住我们的记忆点，一想到青岛的咖啡，就能想到我们家。
+        </div>
+        
+        <div class="question">6. 您希望您的品牌给顾客留下一种什么样的感觉或印象？</div>
+        <div class="answer">
+            我希望顾客一提到"屿廊咖啡"，脑子里出现的画面是：<span class="highlight">专业、安静、能让人完全放松下来</span>。<br><br>
+            不是那种喝完就走的快餐式咖啡馆，而是一个可以慢慢品味、享受一段"慢时光"的城市角落。有点文艺，有点温度，像一个老朋友的书房。
+        </div>
+        
+        <div class="question">7. 您目前在营销推广上遇到的最大困惑或挑战是什么？</div>
+        <div class="answer">
+            唉，挑战太多了，这正是我最头疼的地方：<br><br>
+            1. <span class="highlight">位置太偏，没人知道</span>。 我的店不在主街上，自然客流很少，很多人根本不知道这里藏着一家咖啡店。酒香也怕巷子深啊。<br><br>
+            2. <span class="highlight">线上推广完全是"小白"</span>。 我就是每天在小红书和抖音上随手拍几张咖啡照片，也没什么人看，更别提转化了。完全不知道该发什么内容才能吸引人到店里来。<br><br>
+            3. <span class="highlight">感觉竞争不过大牌</span>。 周边有瑞幸，也有星巴克，人家品牌响，还有各种优惠券，我不知道怎么跟他们抢顾客。<br><br>
+            4. <span class="highlight">想做社群，但无从下手</span>。 很想建个微信群，把来过的熟客都维护起来，但又不知道怎么开口邀请人家，也不知道建了群之后能在里面干嘛，怕变成一个死群。
+        </div>
+        
+        <div class="game-section">
+            <div class="game-title">营销策略小测试</div>
+            <p>如果你是屿廊咖啡的店主，面对上述营销挑战，你会优先尝试哪种策略？</p>
+            
+            <div class="game-option" onclick="showResult(1)">
+                <strong>选项1：</strong> 与周边大学合作，为学生社团活动提供场地，建立校园KOL推广
+            </div>
+            
+            <div class="game-option" onclick="showResult(2)">
+                <strong>选项2：</strong> 设计"咖啡+甜点"套餐，在美团/大众点评推出限时优惠
+            </div>
+            
+            <div class="game-option" onclick="showResult(3)">
+                <strong>选项3：</strong> 策划"咖啡品鉴会"活动，邀请顾客参与手冲体验
+            </div>
+            
+            <div class="game-option" onclick="showResult(4)">
+                <strong>选项4：</strong> 打造"自习室+咖啡"概念，推出月卡会员制度
+            </div>
+            
+            <div id="result1" class="result">
+                <strong>校园合作策略：</strong> 这是个好主意！与大学合作可以精准触达目标客户群体。建议先联系研究生会或文学社团，提供场地支持换取口碑传播。可以设计"学生证优惠"或"论文写作陪伴套餐"。
+            </div>
+            
+            <div id="result2" class="result">
+                <strong>套餐优惠策略：</strong> 线上平台确实能带来曝光，但要注意价格战不是长久之计。建议套餐设计要突出特色产品如"海盐冷萃+巴斯克"组合，并限制优惠时段避免影响正常客流利润。
+            </div>
+            
+            <div id="result3" class="result">
+                <strong>品鉴会策略：</strong> 完美发挥你的专业优势！这类活动能建立品牌专业形象，培养忠实客户。建议先小规模邀请熟客，鼓励他们带朋友参加，并设计拍照打卡环节便于社交媒体传播。
+            </div>
+            
+            <div id="result4" class="result">
+                <strong>自习室会员策略：</strong> 这个方案能解决位置偏的问题，通过会员制培养固定客群。建议设置安静区域，提供充电插座和小台灯，月卡可包含每日一杯基础咖啡，创造持续到店理由。
+            </div>
+            
+            <button class="btn" onclick="resetGame()">重新选择</button>
+        </div>
+    </div>
+
+    <script>
+        function showResult(option) {
+            // 隐藏所有结果
+            document.querySelectorAll('.result').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // 显示选中的结果
+            document.getElementById('result' + option).style.display = 'block';
+        }
+        
+        function resetGame() {
+            document.querySelectorAll('.result').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
+```
+
+这个小游戏包含了屿廊咖啡的品牌故事和互动营销策略测试。游戏特点：
+
+1. 完整呈现了咖啡店的品牌定位、产品特色和目标客户群
+2. 设计了4种不同的营销策略选项供用户选择
+3. 每个选项点击后会显示专业的策略分析和建议
+4. 简洁美观的视觉设计，符合精品咖啡店的调性
+5. 包含重置按钮，可以多次尝试不同策略
+
+店主可以通过这个小游戏向潜在顾客展示品牌理念，同时收集用户对不同营销策略的偏好反馈。游戏结果部分提供的建议也可以作为店主实际营销活动的参考。
