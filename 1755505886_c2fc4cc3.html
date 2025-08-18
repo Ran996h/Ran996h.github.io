@@ -1,0 +1,327 @@
+# 商业模式画布可视化HTML代码
+
+以下是一个完整的商业模式画布可视化HTML代码，包含9个核心模块，采用响应式设计，适合在不同设备上查看：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业模式画布可视化</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .canvas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+            height: 800px;
+        }
+        
+        .block {
+            border-radius: 8px;
+            padding: 15px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .block:hover {
+            transform: translateY(-5px);
+        }
+        
+        .block h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 5px;
+        }
+        
+        .block-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .block-content ul {
+            padding-left: 20px;
+        }
+        
+        .block-content li {
+            margin-bottom: 5px;
+        }
+        
+        /* 各模块颜色 */
+        .customer-segments {
+            background-color: #3498db;
+            grid-column: 1 / 3;
+            grid-row: 1;
+        }
+        
+        .value-propositions {
+            background-color: #e74c3c;
+            grid-column: 3 / 5;
+            grid-row: 1;
+        }
+        
+        .channels {
+            background-color: #2ecc71;
+            grid-column: 1 / 2;
+            grid-row: 2;
+        }
+        
+        .customer-relationships {
+            background-color: #f39c12;
+            grid-column: 2 / 3;
+            grid-row: 2;
+        }
+        
+        .revenue-streams {
+            background-color: #9b59b6;
+            grid-column: 4 / 5;
+            grid-row: 2;
+        }
+        
+        .key-resources {
+            background-color: #1abc9c;
+            grid-column: 1 / 2;
+            grid-row: 3;
+        }
+        
+        .key-activities {
+            background-color: #d35400;
+            grid-column: 2 / 3;
+            grid-row: 3;
+        }
+        
+        .key-partnerships {
+            background-color: #34495e;
+            grid-column: 3 / 4;
+            grid-row: 3;
+        }
+        
+        .cost-structure {
+            background-color: #7f8c8d;
+            grid-column: 4 / 5;
+            grid-row: 3;
+        }
+        
+        .center-block {
+            background-color: #f1c40f;
+            color: #333;
+            grid-column: 3 / 4;
+            grid-row: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .canvas {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(9, auto);
+                height: auto;
+            }
+            
+            .block, .center-block {
+                grid-column: 1;
+                grid-row: auto;
+                min-height: 200px;
+            }
+            
+            .center-block {
+                writing-mode: horizontal-tb;
+                min-height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>商业模式画布</h1>
+        <div class="canvas">
+            <div class="block customer-segments">
+                <h2>客户细分</h2>
+                <div class="block-content">
+                    <p>我们为谁创造价值？谁是我们最重要的客户？</p>
+                    <ul>
+                        <li>大众市场</li>
+                        <li>小众市场</li>
+                        <li>多元化市场</li>
+                        <li>多边平台</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="block value-propositions">
+                <h2>价值主张</h2>
+                <div class="block-content">
+                    <p>我们为客户提供什么价值？我们帮助客户解决什么问题？</p>
+                    <ul>
+                        <li>创新性</li>
+                        <li>性能</li>
+                        <li>定制化</li>
+                        <li>设计</li>
+                        <li>品牌/身份地位</li>
+                        <li>价格</li>
+                        <li>成本节约</li>
+                        <li>风险控制</li>
+                        <li>便利性</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="block channels">
+                <h2>渠道通路</h2>
+                <div class="block-content">
+                    <p>通过什么渠道可以接触我们的客户细分？如何整合这些渠道？</p>
+                    <ul>
+                        <li>自有渠道 vs 合作方渠道</li>
+                        <li>直接渠道 vs 间接渠道</li>
+                        <li>线上渠道 vs 线下渠道</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="block customer-relationships">
+                <h2>客户关系</h2>
+                <div class="block-content">
+                    <p>我们与每个客户细分群体建立并保持何种关系？</p>
+                    <ul>
+                        <li>个人助理</li>
+                        <li>自助服务</li>
+                        <li>自动化服务</li>
+                        <li>社区</li>
+                        <li>共同创造</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="center-block">
+                核心业务
+            </div>
+            
+            <div class="block revenue-streams">
+                <h2>收入来源</h2>
+                <div class="block-content">
+                    <p>什么样的价值能让客户愿意付费？客户如何支付费用？</p>
+                    <ul>
+                        <li>资产销售</li>
+                        <li>使用收费</li>
+                        <li>订阅收费</li>
+                        <li>租赁收费</li>
+                        <li>授权收费</li>
+                        <li>经纪收费</li>
+                        <li>广告收费</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="block key-resources">
+                <h2>核心资源</h2>
+                <div class="block-content">
+                    <p>我们的价值主张需要哪些核心资源？</p>
+                    <ul>
+                        <li>实体资源</li>
+                        <li>知识性资源</li>
+                        <li>人力资源</li>
+                        <li>金融资源</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="block key-activities">
+                <h2>关键业务</h2>
+                <div class="block-content">
+                    <p>我们的价值主张需要哪些关键业务？</p>
+                    <ul>
+                        <li>生产</li>
+                        <li>问题解决</li>
+                        <li>平台/网络</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="block key-partnerships">
+                <h2>重要合作</h2>
+                <div class="block-content">
+                    <p>谁是我们的重要合作伙伴？谁是我们的重要供应商？</p>
+                    <ul>
+                        <li>非竞争者之间的战略联盟</li>
+                        <li>竞争者之间的战略合作</li>
+                        <li>合资企业</li>
+                        <li>供应商关系</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="block cost-structure">
+                <h2>成本结构</h2>
+                <div class="block-content">
+                    <p>商业模式中最重要的固有成本是什么？哪些核心资源花费最多？</p>
+                    <ul>
+                        <li>成本驱动</li>
+                        <li>价值驱动</li>
+                        <li>固定成本</li>
+                        <li>可变成本</li>
+                        <li>规模经济</li>
+                        <li>范围经济</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+## 功能特点
+
+1. **完整的商业模式画布**：包含9个核心模块（客户细分、价值主张、渠道通路、客户关系、收入来源、核心资源、关键业务、重要合作、成本结构）
+
+2. **响应式设计**：
+   - 在桌面端显示为4列3行的网格布局
+   - 在移动端自动调整为单列布局
+
+3. **视觉设计**：
+   - 每个模块使用不同颜色区分
+   - 悬停效果增强交互体验
+   - 清晰的标题和内容区域
+
+4. **内容结构**：
+   - 每个模块包含简要说明和关键点列表
+   - 中心区域突出"核心业务"概念
+
+您可以将此代码保存为HTML文件并在浏览器中打开，或者集成到您的网站中。如需进一步定制，可以修改颜色、内容或布局以满足特定需求。
