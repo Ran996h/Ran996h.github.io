@@ -1,0 +1,289 @@
+# 屿廊咖啡商业模式画布
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>屿廊咖啡商业模式画布</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #5D4037;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #D7CCC8;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #6D4C41;
+            margin-top: 30px;
+            border-left: 4px solid #BCAAA4;
+            padding-left: 10px;
+        }
+        .canvas-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, auto);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .block {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .block h3 {
+            margin-top: 0;
+            color: #5D4037;
+            border-bottom: 1px solid #D7CCC8;
+            padding-bottom: 5px;
+        }
+        .block ul {
+            padding-left: 20px;
+        }
+        .block li {
+            margin-bottom: 8px;
+        }
+        .key-partners {
+            grid-column: 1;
+            grid-row: 1;
+            background-color: #EFEBE9;
+        }
+        .key-activities {
+            grid-column: 2;
+            grid-row: 1;
+            background-color: #D7CCC8;
+        }
+        .value-propositions {
+            grid-column: 3;
+            grid-row: 1 / span 2;
+            background-color: #BCAAA4;
+        }
+        .customer-relationships {
+            grid-column: 1;
+            grid-row: 2;
+            background-color: #EFEBE9;
+        }
+        .customer-segments {
+            grid-column: 2;
+            grid-row: 2;
+            background-color: #D7CCC8;
+        }
+        .key-resources {
+            grid-column: 1;
+            grid-row: 3;
+            background-color: #EFEBE9;
+        }
+        .channels {
+            grid-column: 2;
+            grid-row: 3;
+            background-color: #D7CCC8;
+        }
+        .cost-structure {
+            grid-column: 1;
+            grid-row: 4;
+            background-color: #EFEBE9;
+        }
+        .revenue-streams {
+            grid-column: 2;
+            grid-row: 4;
+            background-color: #D7CCC8;
+        }
+        .swot {
+            margin-top: 40px;
+        }
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .swot-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .swot-item h3 {
+            margin-top: 0;
+            color: #5D4037;
+        }
+        .strengths {
+            border-top: 3px solid #81C784;
+        }
+        .weaknesses {
+            border-top: 3px solid #FFB74D;
+        }
+        .opportunities {
+            border-top: 3px solid #64B5F6;
+        }
+        .threats {
+            border-top: 3px solid #E57373;
+        }
+    </style>
+</head>
+<body>
+    <h1>屿廊咖啡商业模式画布</h1>
+    
+    <div class="canvas-container">
+        <div class="block key-partners">
+            <h3>关键合作伙伴</h3>
+            <ul>
+                <li>精品咖啡豆供应商（国内/国际）</li>
+                <li>本地烘焙坊（甜点供应）</li>
+                <li>大学城学生社团/组织</li>
+                <li>周边小区物业/业主委员会</li>
+                <li>外卖平台（美团、饿了么）</li>
+            </ul>
+        </div>
+        
+        <div class="block key-activities">
+            <h3>关键业务</h3>
+            <ul>
+                <li>精品咖啡制作与品鉴</li>
+                <li>特色城市特调研发</li>
+                <li>店内烘焙甜点制作</li>
+                <li>咖啡文化推广活动</li>
+                <li>社区空间营造</li>
+            </ul>
+        </div>
+        
+        <div class="block value-propositions">
+            <h3>价值主张</h3>
+            <ul>
+                <li><strong>专业手冲咖啡体验</strong>：店主亲自讲解咖啡知识，提供个性化推荐</li>
+                <li><strong>城市特色饮品</strong>：海盐芝士冷萃、啤酒花风味气泡美式等青岛特色饮品</li>
+                <li><strong>第三空间</strong>：安静舒适的环境，适合学习、工作、放松</li>
+                <li><strong>社区归属感</strong>：打造邻里社交空间，提供人情味服务</li>
+                <li><strong>品质与性价比平衡</strong>：比连锁店更专业，比高端店更亲民</li>
+            </ul>
+        </div>
+        
+        <div class="block customer-relationships">
+            <h3>客户关系</h3>
+            <ul>
+                <li><strong>个性化服务</strong>：根据顾客口味偏好提供定制化推荐</li>
+                <li><strong>会员体系</strong>：积分兑换、生日优惠等</li>
+                <li><strong>社群运营</strong>：微信群互动，分享咖啡知识、活动信息</li>
+                <li><strong>熟客特权</strong>：预留座位、新品试尝等</li>
+                <li><strong>线下活动</strong>：咖啡品鉴会、读书会等增强粘性</li>
+            </ul>
+        </div>
+        
+        <div class="block customer-segments">
+            <h3>客户细分</h3>
+            <ul>
+                <li><strong>大学城学生</strong>：研究生、备考群体，需要安静学习空间</li>
+                <li><strong>年轻上班族</strong>：25-35岁，追求生活品质，寻找第三空间</li>
+                <li><strong>咖啡爱好者</strong>：愿意为精品咖啡买单，关注咖啡品质</li>
+                <li><strong>社区居民</strong>：附近高档小区居民，寻求社区归属感</li>
+                <li><strong>游客</strong>：寻找特色体验的游客（次要客户）</li>
+            </ul>
+        </div>
+        
+        <div class="block key-resources">
+            <h3>核心资源</h3>
+            <ul>
+                <li><strong>店主专业知识</strong>：手冲咖啡技能与咖啡文化知识</li>
+                <li><strong>特色产品</strong>：城市特调饮品与自制甜点</li>
+                <li><strong>空间设计</strong>：原木风装修与舒适环境</li>
+                <li><strong>地理位置</strong>：靠近大学城与高档社区</li>
+                <li><strong>社群资源</strong>：积累的熟客群体</li>
+            </ul>
+        </div>
+        
+        <div class="block channels">
+            <h3>渠道通路</h3>
+            <ul>
+                <li><strong>线下门店</strong>：主要销售与服务渠道</li>
+                <li><strong>外卖平台</strong>：美团、饿了么等扩大覆盖范围</li>
+                <li><strong>社交媒体</strong>：小红书、抖音、微信朋友圈内容营销</li>
+                <li><strong>社区合作</strong>：与大学社团、小区物业合作推广</li>
+                <li><strong>口碑传播</strong>：依靠熟客推荐带来新客</li>
+            </ul>
+        </div>
+        
+        <div class="block cost-structure">
+            <h3>成本结构</h3>
+            <ul>
+                <li><strong>固定成本</strong>：房租、水电、设备折旧、人员工资</li>
+                <li><strong>原材料成本</strong>：咖啡豆、牛奶、糖浆、甜点原料等</li>
+                <li><strong>营销成本</strong>：线上推广费用、活动组织费用</li>
+                <li><strong>培训成本</strong>：咖啡知识学习与技能提升</li>
+                <li><strong>平台佣金</strong>：外卖平台抽成</li>
+            </ul>
+        </div>
+        
+        <div class="block revenue-streams">
+            <h3>收入来源</h3>
+            <ul>
+                <li><strong>饮品销售</strong>：手冲咖啡、意式咖啡、特调饮品</li>
+                <li><strong>食品销售</strong>：自制甜点、轻食</li>
+                <li><strong>会员储值</strong>：预付费会员卡</li>
+                <li><strong>活动收入</strong>：咖啡课程、品鉴会等</li>
+                <li><strong>周边产品</strong>：咖啡豆、挂耳包等零售</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="swot">
+        <h2>SWOT分析</h2>
+        <div class="swot-grid">
+            <div class="swot-item strengths">
+                <h3>优势 (Strengths)</h3>
+                <ul>
+                    <li>店主专业的手冲咖啡知识与热情</li>
+                    <li>独特的城市特调饮品差异化竞争</li>
+                    <li>安静舒适的环境设计</li>
+                    <li>靠近大学城与高档社区的地理位置</li>
+                    <li>自制甜点增加产品多样性</li>
+                </ul>
+            </div>
+            
+            <div class="swot-item weaknesses">
+                <h3>劣势 (Weaknesses)</h3>
+                <ul>
+                    <li>店铺位置不临主街，自然客流少</li>
+                    <li>线上营销经验不足，社交媒体影响力弱</li>
+                    <li>品牌知名度低，难以与连锁品牌竞争</li>
+                    <li>社群运营能力欠缺，客户维护不足</li>
+                    <li>产品标准化程度低，依赖店主个人</li>
+                </ul>
+            </div>
+            
+            <div class="swot-item opportunities">
+                <h3>机会 (Opportunities)</h3>
+                <ul>
+                    <li>青岛咖啡文化逐渐兴起，消费者接受度提高</li>
+                    <li>大学城学生群体稳定，自习需求大</li>
+                    <li>周边新建高档社区消费能力强</li>
+                    <li>特色咖啡体验成为社交分享热点</li>
+                    <li>与本地文化结合打造城市名片潜力</li>
+                </ul>
+            </div>
+            
+            <div class="swot-item threats">
+                <h3>威胁 (Threats)</h3>
+                <ul>
+                    <li>连锁咖啡品牌价格战与品牌优势</li>
+                    <li>周边可能新开同类独立咖啡馆</li>
+                    <li>消费者对价格敏感度提高</li>
+                    <li>咖啡原材料价格波动风险</li>
+                    <li>疫情等突发事件对线下客流影响</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
