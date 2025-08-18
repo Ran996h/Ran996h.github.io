@@ -1,0 +1,213 @@
+# 屿廊咖啡商业模式画布
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>屿廊咖啡商业模式画布</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #5D4037;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .canvas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, auto);
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .block {
+            border: 2px solid #5D4037;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #FFF8E1;
+        }
+        .block-title {
+            font-weight: bold;
+            color: #5D4037;
+            margin-bottom: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #BCAAA4;
+            padding-bottom: 5px;
+        }
+        .block-content {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .key-partners {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        .key-activities {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .value-propositions {
+            grid-column: 3;
+            grid-row: 1 / span 2;
+            background-color: #D7CCC8;
+        }
+        .customer-relationships {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        .customer-segments {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        .key-resources {
+            grid-column: 1;
+            grid-row: 3;
+        }
+        .channels {
+            grid-column: 2;
+            grid-row: 3;
+        }
+        .cost-structure {
+            grid-column: 1;
+            grid-row: 4;
+        }
+        .revenue-streams {
+            grid-column: 2;
+            grid-row: 4;
+        }
+    </style>
+</head>
+<body>
+    <h1>屿廊咖啡商业模式画布</h1>
+    
+    <div class="canvas">
+        <div class="block key-partners">
+            <div class="block-title">关键合作伙伴</div>
+            <div class="block-content">
+                <ul>
+                    <li>精品咖啡豆供应商（国内/国际）</li>
+                    <li>本地烘焙坊（甜点供应）</li>
+                    <li>大学城周边商家（联合营销）</li>
+                    <li>外卖平台（美团、饿了么）</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="block key-activities">
+            <div class="block-title">关键业务</div>
+            <div class="block-content">
+                <ul>
+                    <li>精品咖啡制作（手冲/意式）</li>
+                    <li>特色饮品研发（城市特调）</li>
+                    <li>甜点烘焙与供应</li>
+                    <li>咖啡文化推广与教育</li>
+                    <li>第三空间营造</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="block value-propositions">
+            <div class="block-title">价值主张</div>
+            <div class="block-content">
+                <ul>
+                    <li><strong>专业手冲咖啡体验</strong> - 店主亲自讲解咖啡知识，个性化推荐</li>
+                    <li><strong>青岛特色特调饮品</strong> - 海盐芝士冷萃、啤酒花风味气泡美式等独特产品</li>
+                    <li><strong>舒适第三空间</strong> - 安静、文艺的原木风环境，适合学习、工作、放松</li>
+                    <li><strong>社区归属感</strong> - 为周边居民和学生提供有温度的社交空间</li>
+                    <li><strong>高品质甜点搭配</strong> - 自制巴斯克蛋糕、提拉米苏等</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="block customer-relationships">
+            <div class="block-title">客户关系</div>
+            <div class="block-content">
+                <ul>
+                    <li><strong>个性化服务</strong> - 根据顾客口味推荐咖啡</li>
+                    <li><strong>会员社群</strong> - 微信群维护熟客关系</li>
+                    <li><strong>咖啡知识分享</strong> - 定期举办小型品鉴会</li>
+                    <li><strong>环境体验</strong> - 提供舒适、安静的空间</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="block customer-segments">
+            <div class="block-title">客户细分</div>
+            <div class="block-content">
+                <ul>
+                    <li><strong>大学城学生</strong> - 研究生、备考学生，需要安静学习空间</li>
+                    <li><strong>年轻上班族</strong> - 25-35岁，追求生活品质的周边居民</li>
+                    <li><strong>咖啡爱好者</strong> - 对精品咖啡有需求的本地顾客</li>
+                    <li><strong>偶尔游客</strong> - 来金沙滩游玩顺路到访的游客</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="block key-resources">
+            <div class="block-title">核心资源</div>
+            <div class="block-content">
+                <ul>
+                    <li><strong>店主专业知识</strong> - 手冲咖啡技能与知识</li>
+                    <li><strong>特色产品</strong> - 城市特调饮品配方</li>
+                    <li><strong>实体空间</strong> - 舒适的原木风装修环境</li>
+                    <li><strong>咖啡设备</strong> - 专业咖啡机、磨豆机等</li>
+                    <li><strong>熟客社群</strong> - 忠实顾客群体</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="block channels">
+            <div class="block-title">渠道通路</div>
+            <div class="block-content">
+                <ul>
+                    <li><strong>线下门店</strong> - 主要销售渠道</li>
+                    <li><strong>外卖平台</strong> - 美团、饿了么</li>
+                    <li><strong>社交媒体</strong> - 小红书、抖音、微信</li>
+                    <li><strong>口碑传播</strong> - 熟客推荐</li>
+                    <li><strong>大学城合作</strong> - 与周边商家联合推广</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="block cost-structure">
+            <div class="block-title">成本结构</div>
+            <div class="block-content">
+                <ul>
+                    <li><strong>固定成本</strong> - 房租、水电、人工</li>
+                    <li><strong>原材料</strong> - 咖啡豆、牛奶、甜点原料</li>
+                    <li><strong>设备维护</strong> - 咖啡机、磨豆机等</li>
+                    <li><strong>营销推广</strong> - 线上广告、活动策划</li>
+                    <li><strong>培训学习</strong> - 咖啡知识进修</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="block revenue-streams">
+            <div class="block-title">收入来源</div>
+            <div class="block-content">
+                <ul>
+                    <li><strong>饮品销售</strong> - 手冲咖啡、意式咖啡、特调饮品</li>
+                    <li><strong>食品销售</strong> - 甜点、轻食</li>
+                    <li><strong>会员充值</strong> - 储值卡、会员折扣</li>
+                    <li><strong>周边产品</strong> - 咖啡豆、挂耳包</li>
+                    <li><strong>活动收入</strong> - 咖啡品鉴会、小型活动</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+这份商业模式画布全面展示了屿廊咖啡的商业逻辑，特别突出了其独特的价值主张：
+1. 专业手冲咖啡体验
+2. 青岛特色特调饮品
+3. 舒适第三空间
+4. 社区归属感
+
+同时针对当前营销推广的挑战，画布中提出了多渠道推广策略，包括社交媒体运营、大学城合作和口碑传播等。
