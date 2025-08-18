@@ -1,0 +1,190 @@
+# 屿廊咖啡商业模式画布
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>屿廊咖啡商业模式画布</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #6F4E37;
+            text-align: center;
+        }
+        .canvas {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .block {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .block h2 {
+            margin-top: 0;
+            color: #6F4E37;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        .block ul {
+            padding-left: 20px;
+        }
+        .block li {
+            margin-bottom: 8px;
+        }
+        .customer-segments {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        .value-propositions {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+        }
+        .channels {
+            grid-column: 3;
+            grid-row: 1;
+        }
+        .customer-relationships {
+            grid-column: 3;
+            grid-row: 2;
+        }
+        .revenue-streams {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        .key-resources {
+            grid-column: 1;
+            grid-row: 3;
+        }
+        .key-activities {
+            grid-column: 2;
+            grid-row: 3;
+        }
+        .key-partnerships {
+            grid-column: 3;
+            grid-row: 3;
+        }
+        .cost-structure {
+            grid-column: 1 / span 3;
+            grid-row: 4;
+        }
+    </style>
+</head>
+<body>
+    <h1>屿廊咖啡商业模式画布</h1>
+    
+    <div class="canvas">
+        <div class="block customer-segments">
+            <h2>客户细分</h2>
+            <ul>
+                <li><strong>大学城学生群体</strong>：特别是研究生和备考学生，需要安静的学习环境</li>
+                <li><strong>年轻上班族</strong>：25-35岁，追求生活品质，寻找"第三空间"</li>
+                <li><strong>咖啡爱好者</strong>：对手冲咖啡有专业需求的顾客</li>
+                <li><strong>周边社区居民</strong>：高档小区的居民，寻求社区咖啡体验</li>
+            </ul>
+        </div>
+        
+        <div class="block value-propositions">
+            <h2>价值主张</h2>
+            <ul>
+                <li><strong>专业手冲咖啡体验</strong>：店主亲自提供专业咖啡知识和个性化推荐</li>
+                <li><strong>特色城市特调</strong>：海盐芝士冷萃、啤酒花风味气泡美式等青岛特色饮品</li>
+                <li><strong"舒适第三空间</strong>：安静、温馨的原木风格环境，适合长时间停留</li>
+                <li><strong>手工烘焙甜点</strong>：自制巴斯克蛋糕和提拉米苏等高品质甜点</li>
+                <li><strong>社区归属感</strong>：打造有温度的社区咖啡空间，提供人情味服务</li>
+            </ul>
+        </div>
+        
+        <div class="block channels">
+            <h2>渠道通路</h2>
+            <ul>
+                <li><strong>线下门店</strong>：黄岛区石油大学南门附近实体店</li>
+                <li><strong>外卖平台</strong>：美团、饿了么等外卖服务</li>
+                <li><strong>社交媒体</strong>：小红书、抖音、微信朋友圈内容营销</li>
+                <li><strong>社区活动</strong>：参与社区活动，增加本地曝光</li>
+                <li><strong>口碑传播</strong>：依靠顾客口碑和回头客</li>
+            </ul>
+        </div>
+        
+        <div class="block customer-relationships">
+            <h2>客户关系</h2>
+            <ul>
+                <li><strong>个性化服务</strong>：根据顾客口味推荐咖啡豆和饮品</li>
+                <li><strong>会员制度</strong>：积分卡、储值优惠等忠诚度计划</li>
+                <li><strong>社群运营</strong>：微信群互动，分享咖啡知识、活动信息</li>
+                <li><strong>熟客关怀</strong>：记住常客喜好，提供个性化体验</li>
+                <li><strong>咖啡工作坊</strong>：定期举办手冲咖啡体验课程</li>
+            </ul>
+        </div>
+        
+        <div class="block revenue-streams">
+            <h2>收入来源</h2>
+            <ul>
+                <li><strong>饮品销售</strong>：手冲咖啡、意式咖啡、特调饮品</li>
+                <li><strong>食品销售</strong>：自制甜点、轻食</li>
+                <li><strong>咖啡豆零售</strong>：出售精品咖啡豆</li>
+                <li><strong>活动收入</strong>：咖啡工作坊、品鉴会收费</li>
+                <li><strong>会员储值</strong>：预付费会员卡</li>
+                <li><strong>场地租赁</strong>：非高峰时段提供小型活动场地</li>
+            </ul>
+        </div>
+        
+        <div class="block key-resources">
+            <h2>核心资源</h2>
+            <ul>
+                <li><strong>店主专业知识</strong>：手冲咖啡专业技能和热情</li>
+                <li><strong"精品咖啡豆供应链</strong>：稳定的高品质咖啡豆来源</li>
+                <li><strong>店铺环境</strong>：安静舒适的原木风格空间</li>
+                <li><strong>烘焙设备</strong>：专业咖啡机和烘焙工具</li>
+                <li><strong>特色配方</strong>：独家城市特调咖啡配方</li>
+            </ul>
+        </div>
+        
+        <div class="block key-activities">
+            <h2>关键业务</h2>
+            <ul>
+                <li><strong>精品咖啡制作</strong>：提供高品质手冲和意式咖啡</li>
+                <li><strong>产品研发</strong>：开发特色城市特调饮品</li>
+                <li><strong>甜点烘焙</strong>：自制高品质甜点</li>
+                <li><strong>顾客体验管理</strong>：维护舒适环境和个性化服务</li>
+                <li><strong>营销推广</strong>：社交媒体运营和本地推广</li>
+                <li><strong>社群活动</strong>：组织咖啡相关活动和课程</li>
+            </ul>
+        </div>
+        
+        <div class="block key-partnerships">
+            <h2>重要合作</h2>
+            <ul>
+                <li><strong>咖啡豆供应商</strong>：优质稳定的咖啡豆来源</li>
+                <li><strong>本地食材供应商</strong>：新鲜乳制品、烘焙原料</li>
+                <li><strong>外卖平台</strong>：美团、饿了么等配送合作</li>
+                <li><strong>社区组织</strong>：与社区、大学社团合作活动</li>
+                <li><strong>其他本地商家</strong>：联合营销和交叉推广</li>
+            </ul>
+        </div>
+        
+        <div class="block cost-structure">
+            <h2>成本结构</h2>
+            <ul>
+                <li><strong>固定成本</strong>：店铺租金、水电费、设备折旧、员工工资</li>
+                <li><strong>原材料成本</strong>：咖啡豆、牛奶、糖浆、甜点原料等</li>
+                <li><strong>营销成本</strong>：线上推广费用、印刷品、活动成本</li>
+                <li><strong>运营成本</strong>：包装材料、清洁用品、日常耗材</li>
+                <li><strong>培训成本</strong>：咖啡知识学习和技能提升</li>
+                <li><strong>平台佣金</strong>：外卖平台的抽成费用</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+```
