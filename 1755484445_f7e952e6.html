@@ -1,0 +1,313 @@
+# 商业模式画布生成器
+
+以下是一个可以根据用户输入生成可视化商业模式画布的HTML代码：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业模式画布生成器</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .input-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .canvas-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .business-model-canvas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+            height: 800px;
+        }
+        .canvas-block {
+            border: 2px solid #333;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        .canvas-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .canvas-content {
+            font-size: 14px;
+        }
+        .key-partners {
+            grid-column: 1;
+            grid-row: 1;
+            background-color: #FFD700;
+        }
+        .key-activities {
+            grid-column: 2;
+            grid-row: 1;
+            background-color: #FFA07A;
+        }
+        .value-propositions {
+            grid-column: 3;
+            grid-row: 1 / span 2;
+            background-color: #98FB98;
+        }
+        .customer-relationships {
+            grid-column: 1;
+            grid-row: 2;
+            background-color: #ADD8E6;
+        }
+        .customer-segments {
+            grid-column: 2;
+            grid-row: 2;
+            background-color: #DDA0DD;
+        }
+        .key-resources {
+            grid-column: 1;
+            grid-row: 3;
+            background-color: #FFB6C1;
+        }
+        .channels {
+            grid-column: 2;
+            grid-row: 3;
+            background-color: #87CEFA;
+        }
+        .cost-structure {
+            grid-column: 1;
+            grid-row: 4;
+            background-color: #F0E68C;
+        }
+        .revenue-streams {
+            grid-column: 2;
+            grid-row: 4;
+            background-color: #90EE90;
+        }
+        .download-btn {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>商业模式画布生成器</h1>
+        
+        <div class="input-section">
+            <div class="form-group">
+                <label for="business-name">企业/项目名称</label>
+                <input type="text" id="business-name" placeholder="输入您的企业或项目名称">
+            </div>
+            
+            <div class="form-group">
+                <label for="key-partners">关键合作伙伴</label>
+                <textarea id="key-partners" placeholder="描述您的关键合作伙伴是谁，他们如何为您的业务提供价值"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="key-activities">关键业务</label>
+                <textarea id="key-activities" placeholder="描述您的核心业务活动，即您必须做的最重要的事情"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="value-propositions">价值主张</label>
+                <textarea id="value-propositions" placeholder="描述您为客户提供的价值，解决什么问题，满足什么需求"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="customer-relationships">客户关系</label>
+                <textarea id="customer-relationships" placeholder="描述您与客户建立的关系类型，如何获取、维系和发展客户"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="customer-segments">客户细分</label>
+                <textarea id="customer-segments" placeholder="描述您的目标客户群体是谁，他们有什么共同特征"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="key-resources">核心资源</label>
+                <textarea id="key-resources" placeholder="描述您的业务所需的最重要资源，包括物理、智力、人力和财务资源"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="channels">渠道通路</label>
+                <textarea id="channels" placeholder="描述您如何与客户沟通并交付您的价值主张"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="cost-structure">成本结构</label>
+                <textarea id="cost-structure" placeholder="描述您的业务运营中最重要的成本"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="revenue-streams">收入来源</label>
+                <textarea id="revenue-streams" placeholder="描述您的客户真正愿意付费的价值，您的收入模式"></textarea>
+            </div>
+            
+            <button id="generate-btn">生成商业模式画布</button>
+        </div>
+        
+        <div class="canvas-container" id="canvas-container" style="display: none;">
+            <h2 id="canvas-title"></h2>
+            <div class="business-model-canvas" id="business-model-canvas">
+                <div class="canvas-block key-partners">
+                    <div class="canvas-title">关键合作伙伴</div>
+                    <div class="canvas-content" id="display-key-partners"></div>
+                </div>
+                <div class="canvas-block key-activities">
+                    <div class="canvas-title">关键业务</div>
+                    <div class="canvas-content" id="display-key-activities"></div>
+                </div>
+                <div class="canvas-block value-propositions">
+                    <div class="canvas-title">价值主张</div>
+                    <div class="canvas-content" id="display-value-propositions"></div>
+                </div>
+                <div class="canvas-block customer-relationships">
+                    <div class="canvas-title">客户关系</div>
+                    <div class="canvas-content" id="display-customer-relationships"></div>
+                </div>
+                <div class="canvas-block customer-segments">
+                    <div class="canvas-title">客户细分</div>
+                    <div class="canvas-content" id="display-customer-segments"></div>
+                </div>
+                <div class="canvas-block key-resources">
+                    <div class="canvas-title">核心资源</div>
+                    <div class="canvas-content" id="display-key-resources"></div>
+                </div>
+                <div class="canvas-block channels">
+                    <div class="canvas-title">渠道通路</div>
+                    <div class="canvas-content" id="display-channels"></div>
+                </div>
+                <div class="canvas-block cost-structure">
+                    <div class="canvas-title">成本结构</div>
+                    <div class="canvas-content" id="display-cost-structure"></div>
+                </div>
+                <div class="canvas-block revenue-streams">
+                    <div class="canvas-title">收入来源</div>
+                    <div class="canvas-content" id="display-revenue-streams"></div>
+                </div>
+            </div>
+            
+            <div class="download-btn">
+                <button id="download-btn">下载商业模式画布</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            // 获取所有输入值
+            const businessName = document.getElementById('business-name').value;
+            const keyPartners = document.getElementById('key-partners').value;
+            const keyActivities = document.getElementById('key-activities').value;
+            const valuePropositions = document.getElementById('value-propositions').value;
+            const customerRelationships = document.getElementById('customer-relationships').value;
+            const customerSegments = document.getElementById('customer-segments').value;
+            const keyResources = document.getElementById('key-resources').value;
+            const channels = document.getElementById('channels').value;
+            const costStructure = document.getElementById('cost-structure').value;
+            const revenueStreams = document.getElementById('revenue-streams').value;
+            
+            // 设置画布标题
+            document.getElementById('canvas-title').textContent = businessName ? `${businessName} - 商业模式画布` : '商业模式画布';
+            
+            // 填充画布内容
+            document.getElementById('display-key-partners').textContent = keyPartners || '未提供信息';
+            document.getElementById('display-key-activities').textContent = keyActivities || '未提供信息';
+            document.getElementById('display-value-propositions').textContent = valuePropositions || '未提供信息';
+            document.getElementById('display-customer-relationships').textContent = customerRelationships || '未提供信息';
+            document.getElementById('display-customer-segments').textContent = customerSegments || '未提供信息';
+            document.getElementById('display-key-resources').textContent = keyResources || '未提供信息';
+            document.getElementById('display-channels').textContent = channels || '未提供信息';
+            document.getElementById('display-cost-structure').textContent = costStructure || '未提供信息';
+            document.getElementById('display-revenue-streams').textContent = revenueStreams || '未提供信息';
+            
+            // 显示画布
+            document.getElementById('canvas-container').style.display = 'block';
+            
+            // 滚动到画布位置
+            document.getElementById('canvas-container').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        document.getElementById('download-btn').addEventListener('click', function() {
+            alert('在实际应用中，这里会实现将画布导出为图片或PDF的功能。\n\n由于这是一个演示，您可以截图保存您的商业模式画布。');
+        });
+    </script>
+</body>
+</html>
+```
+
+## 使用说明
+
+1. 在输入区域填写您的商业模式各个组成部分的信息
+2. 点击"生成商业模式画布"按钮
+3. 系统将根据您的输入生成可视化的商业模式画布
+4. 您可以点击"下载商业模式画布"按钮保存结果(实际应用中会实现导出功能)
+
+## 商业模式画布包含的9个模块
+
+1. **关键合作伙伴** - 您的业务依赖的关键外部合作伙伴
+2. **关键业务** - 您的业务必须执行的最重要活动
+3. **价值主张** - 您为客户提供的价值
+4. **客户关系** - 您与客户建立的关系类型
+5. **客户细分** - 您的目标客户群体
+6. **核心资源** - 您的业务所需的最重要资源
+7. **渠道通路** - 您如何与客户沟通并交付价值
+8. **成本结构** - 您的业务运营中最重要的成本
+9. **收入来源** - 您的客户真正愿意付费的价值
+
+您可以根据实际需求修改HTML代码中的样式和布局。
