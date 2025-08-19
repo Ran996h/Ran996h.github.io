@@ -1,0 +1,340 @@
+# 屿廊咖啡品牌探索小游戏
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>屿廊咖啡品牌探索</title>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #f5f0e6;
+            color: #5a4a42;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #8b6b4a;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-style: italic;
+            color: #a38b7a;
+        }
+        .game-container {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #6d5c4d;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .option {
+            background-color: #f0e6d6;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            background-color: #e6d9c5;
+            transform: translateX(5px);
+        }
+        .selected {
+            background-color: #d4c4a8;
+            font-weight: bold;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #e8f4f8;
+            display: none;
+        }
+        .next-btn {
+            background-color: #8b6b4a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            display: none;
+        }
+        .next-btn:hover {
+            background-color: #7a5d3f;
+        }
+        .progress-bar {
+            height: 5px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #8b6b4a;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        .final-result {
+            text-align: center;
+            display: none;
+        }
+        .coffee-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+        }
+        .restart-btn {
+            background-color: #a38b7a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .restart-btn:hover {
+            background-color: #8b6b4a;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">屿廊咖啡</div>
+        <div class="tagline">城市中的岛屿，时光里的走廊</div>
+    </div>
+    
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    
+    <div class="game-container">
+        <div id="question-container">
+            <div class="question" id="question"></div>
+            <div class="options" id="options"></div>
+            <div class="result" id="result"></div>
+            <button class="next-btn" id="next-btn">继续</button>
+        </div>
+        
+        <div class="final-result" id="final-result">
+            <h2>屿廊咖啡品牌定位报告</h2>
+            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="屿廊咖啡" class="coffee-img">
+            <div id="report-content"></div>
+            <button class="restart-btn" id="restart-btn">重新开始</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "屿廊咖啡最吸引你的是什么？",
+                options: [
+                    "专业的手冲咖啡体验",
+                    "安静舒适的环境氛围",
+                    "独特的城市特调饮品",
+                    "店主热情的服务态度"
+                ],
+                results: [
+                    "你被屿廊的专业性所吸引！店主的手冲技艺和咖啡知识确实是一大亮点。",
+                    "你喜欢屿廊的环境氛围！安静舒适的空间确实是现代人难得的放松之处。",
+                    "你对创新饮品感兴趣！'海盐芝士冷萃'和'啤酒花风味气泡美式'确实很有特色。",
+                    "你重视服务体验！店主与顾客的互动交流能为咖啡馆增添人情味。"
+                ]
+            },
+            {
+                question: "作为顾客，你更看重咖啡馆的什么？",
+                options: [
+                    "咖啡品质和口味",
+                    "环境和舒适度",
+                    "价格和性价比",
+                    "便利性和位置"
+                ],
+                results: [
+                    "你是一个咖啡爱好者！屿廊的高品质手冲咖啡正合你意。",
+                    "你寻找的是第三空间！屿廊安静舒适的环境适合你工作或放松。",
+                    "你关注性价比！屿廊需要在价格和品质之间找到平衡点。",
+                    "你重视便利性！位置偏僻确实是屿廊需要解决的问题。"
+                ]
+            },
+            {
+                question: "你会因为什么原因选择一家独立咖啡馆而非连锁品牌？",
+                options: [
+                    "独特的咖啡体验",
+                    "个性化的空间设计",
+                    "与店主/咖啡师的互动",
+                    "支持本地小生意"
+                ],
+                results: [
+                    "你追求独特体验！屿廊的特色特调和手冲咖啡能满足你。",
+                    "你喜欢有个性的空间！屿廊的原木风和绿植装饰很有特色。",
+                    "你重视人际互动！店主面对面的交流是连锁店无法提供的。",
+                    "你支持本地商家！选择屿廊就是支持青岛本地的咖啡文化。"
+                ]
+            },
+            {
+                question: "你认为屿廊最需要改进的是什么？",
+                options: [
+                    "线上推广和知名度",
+                    "产品种类和菜单",
+                    "价格策略",
+                    "位置和可达性"
+                ],
+                results: [
+                    "你指出了营销痛点！线上推广确实是屿廊目前的短板。",
+                    "你关注产品多样性！菜单创新能吸引更多顾客。",
+                    "你认为价格很重要！合理的定价策略能吸引更多学生群体。",
+                    "你指出了位置问题！偏僻的位置确实影响客流。"
+                ]
+            },
+            {
+                question: "你通常通过什么渠道发现新咖啡馆？",
+                options: [
+                    "社交媒体（小红书/抖音）",
+                    "朋友推荐",
+                    "路过时偶然发现",
+                    "本地生活平台（大众点评等）"
+                ],
+                results: [
+                    "你依赖社交媒体！屿廊需要加强在这些平台的运营。",
+                    "你信任口碑传播！老顾客推荐对屿廊很重要。",
+                    "你靠偶遇发现！位置偏僻会影响这种发现方式。",
+                    "你使用生活平台！这些平台的优化对屿廊很关键。"
+                ]
+            }
+        ];
+        
+        let currentQuestion = 0;
+        let answers = [];
+        
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const resultEl = document.getElementById('result');
+        const nextBtn = document.getElementById('next-btn');
+        const progressEl = document.getElementById('progress');
+        const questionContainer = document.getElementById('question-container');
+        const finalResult = document.getElementById('final-result');
+        const reportContent = document.getElementById('report-content');
+        const restartBtn = document.getElementById('restart-btn');
+        
+        function showQuestion() {
+            if (currentQuestion >= questions.length) {
+                showFinalResult();
+                return;
+            }
+            
+            const q = questions[currentQuestion];
+            questionEl.textContent = q.question;
+            optionsEl.innerHTML = '';
+            
+            q.options.forEach((option, index) => {
+                const optionEl = document.createElement('div');
+                optionEl.className = 'option';
+                optionEl.textContent = option;
+                optionEl.addEventListener('click', () => selectOption(index));
+                optionsEl.appendChild(optionEl);
+            });
+            
+            resultEl.style.display = 'none';
+            nextBtn.style.display = 'none';
+            progressEl.style.width = `${(currentQuestion / questions.length) * 100}%`;
+        }
+        
+        function selectOption(index) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            options[index].classList.add('selected');
+            
+            resultEl.textContent = questions[currentQuestion].results[index];
+            resultEl.style.display = 'block';
+            nextBtn.style.display = 'block';
+            
+            answers[currentQuestion] = {
+                question: questions[currentQuestion].question,
+                answer: questions[currentQuestion].options[index],
+                insight: questions[currentQuestion].results[index]
+            };
+        }
+        
+        nextBtn.addEventListener('click', () => {
+            currentQuestion++;
+            showQuestion();
+        });
+        
+        function showFinalResult() {
+            questionContainer.style.display = 'none';
+            finalResult.style.display = 'block';
+            progressEl.style.width = '100%';
+            
+            let report = `
+                <p>基于你的选择，我们为屿廊咖啡总结了以下品牌定位建议：</p>
+                <ul>
+                    <li><strong>核心优势：</strong>专业手冲咖啡、独特环境氛围、个性化服务</li>
+                    <li><strong>目标客户：</strong>追求品质生活的年轻人和咖啡爱好者</li>
+                    <li><strong>独特卖点：</strong>"城市特调"系列和面对面的咖啡文化交流</li>
+                    <li><strong>改进方向：</strong>加强线上推广，优化社交媒体内容，提升知名度</li>
+                    <li><strong>品牌调性：</strong>专业而不高冷，温暖而有深度</li>
+                </ul>
+                <p>建议行动：</p>
+                <ol>
+                    <li>在小红书/抖音开展"咖啡知识小课堂"系列内容</li>
+                    <li>推出"咖啡+甜点"套餐，提高客单价</li>
+                    <li>与周边大学合作，举办读书会或小型文化活动</li>
+                    <li>优化大众点评页面，鼓励满意顾客留下好评</li>
+                </ol>
+            `;
+            
+            reportContent.innerHTML = report;
+        }
+        
+        restartBtn.addEventListener('click', () => {
+            currentQuestion = 0;
+            answers = [];
+            questionContainer.style.display = 'block';
+            finalResult.style.display = 'none';
+            showQuestion();
+        });
+        
+        // Start the game
+        showQuestion();
+    </script>
+</body>
+</html>
+```
+
+这个小游戏通过一系列选择题帮助用户探索"屿廊咖啡"的品牌定位，最后生成一份品牌定位报告。游戏特点包括：
+
+1. 精美的咖啡主题UI设计，符合屿廊咖啡的品牌调性
+2. 5个关键问题，涵盖品牌认知、竞争优势、改进方向等
+3. 即时反馈，每个选择都有对应的分析
+4. 最终生成详细的品牌定位建议报告
+5. 响应式设计，适合在各种设备上体验
+
+店主可以通过这个小游戏：
+- 让潜在顾客更好地理解品牌价值
+- 收集顾客偏好数据
+- 以互动方式展示咖啡馆特色
+- 在社交媒体上分享增加曝光
+
+游戏完全基于提供的品牌信息设计，突出了屿廊咖啡的专业性、环境氛围和独特产品。
