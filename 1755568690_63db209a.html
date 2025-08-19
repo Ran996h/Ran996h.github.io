@@ -1,0 +1,241 @@
+# 屿廊咖啡商业模式画布
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>屿廊咖啡商业模式画布</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #5D4037;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        h2 {
+            color: #6D4C41;
+            border-bottom: 1px solid #D7CCC8;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            font-weight: 400;
+        }
+        .canvas-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, auto);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .canvas-block {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .block-title {
+            font-weight: bold;
+            color: #5D4037;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .block-content {
+            font-size: 14px;
+        }
+        .key-partners {
+            grid-column: 1;
+            grid-row: 1;
+            background-color: #EFEBE9;
+        }
+        .key-activities {
+            grid-column: 2;
+            grid-row: 1;
+            background-color: #D7CCC8;
+        }
+        .value-propositions {
+            grid-column: 3;
+            grid-row: 1 / span 2;
+            background-color: #BCAAA4;
+            color: white;
+        }
+        .customer-relationships {
+            grid-column: 1;
+            grid-row: 2;
+            background-color: #EFEBE9;
+        }
+        .customer-segments {
+            grid-column: 2;
+            grid-row: 2;
+            background-color: #D7CCC8;
+        }
+        .key-resources {
+            grid-column: 1;
+            grid-row: 3;
+            background-color: #EFEBE9;
+        }
+        .channels {
+            grid-column: 2;
+            grid-row: 3;
+            background-color: #D7CCC8;
+        }
+        .cost-structure {
+            grid-column: 1;
+            grid-row: 4;
+            background-color: #EFEBE9;
+        }
+        .revenue-streams {
+            grid-column: 2;
+            grid-row: 4;
+            background-color: #D7CCC8;
+        }
+        .analysis-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>屿廊咖啡商业模式画布</h1>
+    
+    <div class="canvas-container">
+        <div class="canvas-block key-partners">
+            <div class="block-title">关键合作伙伴</div>
+            <div class="block-content">
+                <ul>
+                    <li>精品咖啡豆供应商</li>
+                    <li>本地烘焙坊</li>
+                    <li>本地啤酒厂(啤酒花原料)</li>
+                    <li>大学城学生社团</li>
+                    <li>周边社区物业</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="canvas-block key-activities">
+            <div class="block-title">关键业务</div>
+            <div class="block-content">
+                <ul>
+                    <li>精品咖啡制作与品鉴</li>
+                    <li>特色饮品研发</li>
+                    <li>店内甜点烘焙</li>
+                    <li>咖啡文化推广活动</li>
+                    <li>社区空间营造</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="canvas-block value-propositions">
+            <div class="block-title">价值主张</div>
+            <div class="block-content">
+                <ul>
+                    <li>专业手冲咖啡与个性化推荐服务</li>
+                    <li>融合青岛特色的创意饮品</li>
+                    <li>安静舒适的学习/工作环境</li>
+                    <li>有温度的人文交流空间</li>
+                    <li>高品质但平价的精品咖啡体验</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="canvas-block customer-relationships">
+            <div class="block-title">客户关系</div>
+            <div class="block-content">
+                <ul>
+                    <li>个性化咖啡推荐服务</li>
+                    <li>熟客会员制度</li>
+                    <li>咖啡知识分享与交流</li>
+                    <li>社群活动与工作坊</li>
+                    <li>安静不打扰的服务方式</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="canvas-block customer-segments">
+            <div class="block-title">客户细分</div>
+            <div class="block-content">
+                <ul>
+                    <li>大学城学生(考研/研究生群体)</li>
+                    <li>周边年轻上班族(25-35岁)</li>
+                    <li>精品咖啡爱好者</li>
+                    <li>需要安静工作/学习空间的人群</li>
+                    <li>偶尔到访的游客</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="canvas-block key-resources">
+            <div class="block-title">核心资源</div>
+            <div class="block-content">
+                <ul>
+                    <li>店主咖啡专业知识与热情</li>
+                    <li>特色咖啡豆供应链</li>
+                    <li>舒适的空间设计与环境</li>
+                    <li>自制甜点配方</li>
+                    <li>青岛本地文化元素</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="canvas-block channels">
+            <div class="block-title">渠道通路</div>
+            <div class="block-content">
+                <ul>
+                    <li>线下门店体验</li>
+                    <li>社交媒体(小红书/抖音)</li>
+                    <li>大学社团合作</li>
+                    <li>社区口碑传播</li>
+                    <li>外卖平台(有限度)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="canvas-block cost-structure">
+            <div class="block-title">成本结构</div>
+            <div class="block-content">
+                <ul>
+                    <li>高品质咖啡豆采购成本</li>
+                    <li>店铺租金与装修摊销</li>
+                    <li>人力成本(咖啡师/店员)</li>
+                    <li>原材料成本(牛奶/糖浆等)</li>
+                    <li>营销推广费用</li>
+                    <li>设备维护与更新</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="canvas-block revenue-streams">
+            <div class="block-title">收入来源</div>
+            <div class="block-content">
+                <ul>
+                    <li>咖啡饮品销售</li>
+                    <li>甜点与轻食销售</li>
+                    <li>咖啡豆与周边产品</li>
+                    <li>会员储值</li>
+                    <li>小型活动场地租赁</li>
+                    <li>咖啡课程/品鉴会</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="analysis-section">
+        <h2>营销挑战分析</h2>
+        <p><strong>位置偏僻问题：</strong>可以考虑与周边大学社团合作，提供社团活动场地优惠；与社区物业合作，在小区内进行宣传；设置明显的路标指示。</p>
+        <p><strong>线上推广策略：</strong>聚焦"咖啡+青岛特色"内容，如"海边的咖啡时光"系列；展示咖啡制作过程与专业知识；邀请本地KOL探店；定期举办线上互动活动。</p>
+        <p><strong>与大品牌竞争：</strong>强调差异化优势—个性化服务、安静环境、本地特色；可考虑推出"学生证优惠"等针对性促销；建立会员体系增加粘性。</p>
+        <p><strong>社群运营建议：</strong>从熟客开始，以"咖啡知识分享群"名义建立；定期推送新品信息、咖啡小知识；组织线下品鉴活动；设置社群专属优惠。</p>
+    </div>
+</body>
+</html>
+```
