@@ -1,0 +1,243 @@
+# 屿廊咖啡品牌定位小游戏
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>屿廊咖啡品牌定位小游戏</title>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #f5f0e6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #8b6b4a;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .intro {
+            background-color: #f8f4ed;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8b6b4a;
+        }
+        .game-section {
+            margin-bottom: 30px;
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #5a4a3a;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .option {
+            background-color: #e8e1d5;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            background-color: #d4c9b8;
+        }
+        .option.selected {
+            background-color: #8b6b4a;
+            color: white;
+        }
+        .result {
+            display: none;
+            background-color: #f0e9dd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #8b6b4a;
+        }
+        .btn {
+            background-color: #8b6b4a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background-color: #6d5439;
+        }
+        .final-result {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+        .coffee-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        .highlight {
+            color: #8b6b4a;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>屿廊咖啡品牌定位小游戏</h1>
+        
+        <div class="intro">
+            <p>欢迎来到屿廊咖啡品牌定位小游戏！通过这个互动游戏，我们将帮助您更清晰地定义您的咖啡店品牌定位，并找到最适合的营销策略。</p>
+            <p>请根据您的实际情况选择最符合的选项，完成游戏后您将获得个性化的品牌建议。</p>
+        </div>
+        
+        <div class="game-section">
+            <div class="question">1. 您的店铺最想突出的核心特色是什么？</div>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 1)">专业的手冲咖啡体验</div>
+                <div class="option" onclick="selectOption(this, 1)">安静舒适的环境氛围</div>
+                <div class="option" onclick="selectOption(this, 1)">独特的城市特调饮品</div>
+                <div class="option" onclick="selectOption(this, 1)">社区归属感</div>
+            </div>
+            <div class="result" id="result1">
+                <p>好的选择！这将帮助我们确定您的<span class="highlight">核心差异化优势</span>。</p>
+            </div>
+        </div>
+        
+        <div class="game-section">
+            <div class="question">2. 您最想吸引的顾客群体是？</div>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 2)">大学生/研究生</div>
+                <div class="option" onclick="selectOption(this, 2)">年轻上班族</div>
+                <div class="option" onclick="selectOption(this, 2)">咖啡爱好者</div>
+                <div class="option" onclick="selectOption(this, 2)">社区常驻居民</div>
+            </div>
+            <div class="result" id="result2">
+                <p>了解！明确目标客户有助于我们制定<span class="highlight">精准的营销策略</span>。</p>
+            </div>
+        </div>
+        
+        <div class="game-section">
+            <div class="question">3. 您目前面临的最大营销挑战是？</div>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 3)">店铺位置偏僻，缺乏自然客流</div>
+                <div class="option" onclick="selectOption(this, 3)">不懂线上推广和社交媒体运营</div>
+                <div class="option" onclick="selectOption(this, 3)">难以与连锁品牌竞争</div>
+                <div class="option" onclick="selectOption(this, 3)">不知道如何建立和维护客户社群</div>
+            </div>
+            <div class="result" id="result3">
+                <p>这是很多独立咖啡馆的共同痛点，别担心，我们会针对性地<span class="highlight">解决这些问题</span>。</p>
+            </div>
+        </div>
+        
+        <div class="game-section">
+            <div class="question">4. 您希望顾客如何描述您的咖啡店？</div>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 4)">专业的/有品质的</div>
+                <div class="option" onclick="selectOption(this, 4)">舒适的/放松的</div>
+                <div class="option" onclick="selectOption(this, 4)">独特的/有创意的</div>
+                <div class="option" onclick="selectOption(this, 4)">温暖的/有人情味的</div>
+            </div>
+            <div class="result" id="result4">
+                <p>这将是您的<span class="highlight">品牌个性</span>的重要组成部分！</p>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="showResults()">查看我的品牌建议</button>
+        
+        <div class="final-result" id="finalResult">
+            <div class="coffee-icon">☕</div>
+            <h2>您的屿廊咖啡品牌定位建议</h2>
+            <p>基于您的选择，我们建议将屿廊咖啡定位为：</p>
+            <p><span class="highlight">"青岛黄岛区的精品咖啡书房"</span> - 一个融合专业手冲咖啡、安静学习工作环境和青岛本地特色的城市第三空间。</p>
+            
+            <h3>具体建议：</h3>
+            <ul>
+                <li><strong>核心差异化：</strong> 突出您的"专业手冲+城市特调"双产品线，特别是"海盐芝士冷萃"和"啤酒花风味气泡美式"作为招牌</li>
+                <li><strong>目标客户：</strong> 重点吸引石油大学研究生和附近高档小区的25-35岁年轻上班族</li>
+                <li><strong>品牌形象：</strong> 打造"专业但不高冷，温暖但不随意"的调性</li>
+                <li><strong>营销策略：</strong> 
+                    <ul>
+                        <li>与大学社团合作举办"咖啡品鉴会"</li>
+                        <li>推出"自习卡"套餐（咖啡+甜点+3小时座位）</li>
+                        <li>在小红书打造"青岛小众咖啡馆探店"内容</li>
+                        <li>建立会员微信群，定期分享咖啡知识和特调新品</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p>记住：独立咖啡馆最大的优势是<span class="highlight">人情味和独特性</span>，这是连锁品牌无法复制的！</p>
+        </div>
+    </div>
+
+    <script>
+        let selectedOptions = [null, null, null, null];
+        
+        function selectOption(element, questionNum) {
+            // Remove selected class from all options in this question
+            const options = element.parentElement.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Store the selected option text
+            selectedOptions[questionNum-1] = element.textContent;
+            
+            // Show the result for this question
+            document.getElementById(`result${questionNum}`).style.display = 'block';
+        }
+        
+        function showResults() {
+            // Check if all questions are answered
+            if (selectedOptions.includes(null)) {
+                alert('请先回答所有问题！');
+                return;
+            }
+            
+            // Show final results
+            document.getElementById('finalResult').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('finalResult').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+```
+
+这个小游戏可以帮助屿廊咖啡的店主更清晰地定义品牌定位。游戏包含4个关键问题：
+
+1. 关于店铺的核心特色
+2. 关于目标客户群体
+3. 关于当前营销挑战
+4. 关于希望塑造的品牌形象
+
+用户选择完毕后，会生成一份个性化的品牌建议，包括：
+- 核心差异化定位建议
+- 目标客户聚焦建议
+- 品牌形象塑造建议
+- 具体营销策略建议
+
+游戏界面采用温暖的咖啡色调，简洁友好，适合咖啡馆主使用。
