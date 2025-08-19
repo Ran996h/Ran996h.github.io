@@ -1,0 +1,211 @@
+# 屿廊咖啡品牌宣传海报
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f5f2;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .poster {
+            width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .header {
+            background-color: #3a5a78;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .logo {
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 18px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .overlay-text {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background-color: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+        .overlay-text h2 {
+            margin-top: 0;
+            color: #3a5a78;
+        }
+        .content {
+            padding: 30px;
+            display: flex;
+        }
+        .left-column {
+            flex: 2;
+            padding-right: 20px;
+        }
+        .right-column {
+            flex: 1;
+            background-color: #f5f0e8;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #3a5a78;
+            border-bottom: 2px solid #e0d6c2;
+            padding-bottom: 10px;
+        }
+        .highlight {
+            background-color: #f0e7d8;
+            padding: 15px;
+            border-left: 4px solid #d4a762;
+            margin: 20px 0;
+        }
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 24px;
+            color: #d4a762;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .footer {
+            background-color: #3a5a78;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .social-icons {
+            margin-top: 15px;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .menu-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #d4a762;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .item-name {
+            font-weight: bold;
+            color: #3a5a78;
+        }
+        .item-desc {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <div class="logo">屿廊咖啡</div>
+            <div class="tagline">青岛黄岛区的咖啡岛屿，您的城市书房</div>
+        </div>
+        
+        <div class="main-image">
+            <div class="overlay-text">
+                <h2>发现您的专属咖啡时光</h2>
+                <p>在繁忙的城市中，我们为您保留了一片安静的岛屿。专业的手冲咖啡，舒适的环境，让每一杯咖啡都成为一段美好的记忆。</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="left-column">
+                <h2>为什么选择屿廊咖啡？</h2>
+                <p>在青岛黄岛区的喧嚣中，我们创造了一个让您慢下来的空间。每一杯咖啡都倾注了我们对品质的执着和对细节的关注。</p>
+                
+                <div class="highlight">
+                    <strong>专业手冲体验：</strong> 我们的咖啡师会与您面对面交流，根据您的口味偏好推荐最适合的咖啡豆，从埃塞俄比亚的耶加雪菲到哥伦比亚的慧兰，每一款都有独特的故事。
+                </div>
+                
+                <h2>我们的特色</h2>
+                <p><strong>青岛城市特调：</strong> 结合青岛本地特色的创意咖啡，包括"海盐芝士冷萃"和"啤酒花风味气泡美式"，让您在咖啡中品味青岛。</p>
+                <p><strong>舒适环境：</strong> 原木风格的装修，郁郁葱葱的绿植，安静的氛围，是学习、工作或放松的理想场所。</p>
+                <p><strong>手工甜点：</strong> 每日新鲜烘焙的巴斯克蛋糕和提拉米苏，完美搭配您的咖啡时光。</p>
+                
+                <div class="signature">期待您的光临</div>
+            </div>
+            
+            <div class="right-column">
+                <h2>招牌饮品</h2>
+                
+                <div class="menu-item">
+                    <div class="item-name">手冲单品咖啡</div>
+                    <div class="item-desc">精选全球优质咖啡豆，每日新鲜烘焙</div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-name">海盐芝士冷萃</div>
+                    <div class="item-desc">青岛特色，海盐与芝士的完美融合</div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-name">啤酒花风味气泡美式</div>
+                    <div class="item-desc">致敬青岛啤酒文化的创意咖啡</div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-name">屿廊拿铁</div>
+                    <div class="item-desc">丝滑香醇，我们的经典之作</div>
+                </div>
+                
+                <h2>营业信息</h2>
+                <p><strong>地址：</strong>黄岛区石油大学南门附近</p>
+                <p><strong>营业时间：</strong>周一至周日 8:00-20:00</p>
+                <p><strong>电话：</strong>138-XXXX-XXXX</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            关注我们的社交媒体，获取最新活动和优惠
+            <div class="social-icons">
+                <a href="#">微信</a>
+                <a href="#">小红书</a>
+                <a href="#">抖音</a>
+            </div>
+            <p>© 2023 屿廊咖啡 版权所有</p>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+这张海报设计突出了屿廊咖啡的以下核心特点：
+
+1. 专业手冲咖啡的定位
+2. 青岛特色的城市特调饮品
+3. 安静舒适的环境氛围
+4. 针对学生和年轻上班族的目标客户群
+5. 与连锁咖啡店差异化的人文关怀
+
+海报采用温暖的色调和简洁的设计，传达出"城市岛屿"和"书房"的品牌理念，同时展示了招牌产品和店铺信息。右侧栏特别突出了特色饮品，左侧则详细描述了品牌价值和独特卖点。
