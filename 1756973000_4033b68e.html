@@ -1,0 +1,340 @@
+# 七日减肥计划表
+
+下面是一个完整的七日减肥计划表HTML实现：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七日减肥计划表 - 苏晨海鲜渔家宴健康生活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .intro {
+            padding: 25px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .intro p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .plan-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 25px;
+        }
+        
+        .day-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .day-header {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .meal-plan {
+            margin-bottom: 20px;
+        }
+        
+        .meal-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .meal-title::before {
+            content: "•";
+            margin-right: 8px;
+            color: #3498db;
+        }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .exercise h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .tip {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+        }
+        
+        @media (max-width: 768px) {
+            .plan-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>七日减肥计划表</h1>
+            <p class="subtitle">健康饮食 + 科学运动 = 理想身材</p>
+        </header>
+        
+        <div class="intro">
+            <p>欢迎开启您的七日减肥之旅！本计划结合了营养均衡的饮食和适当的运动，旨在帮助您健康减重。</p>
+            <p>计划中的饮食建议可根据您的个人口味和食材可用性进行调整，但请保持总体热量控制。</p>
+            <p>注意：减肥期间请保证每天饮用至少2升水，并确保充足的睡眠。</p>
+        </div>
+        
+        <div class="plan-container">
+            <!-- 第一天 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h2>第一天：启动代谢</h2>
+                </div>
+                <div class="meal-plan">
+                    <p class="meal-title">早餐：水煮蛋2个 + 全麦面包1片 + 黄瓜</p>
+                    <p class="meal-title">午餐：鸡胸肉沙拉（150g鸡胸肉+大量蔬菜）</p>
+                    <p class="meal-title">晚餐：清蒸鱼150g + 西兰花 + 半碗糙米饭</p>
+                </div>
+                <div class="exercise">
+                    <h3>运动计划</h3>
+                    <p>30分钟快走 + 15分钟拉伸</p>
+                </div>
+                <div class="tip">
+                    <p>💡 小贴士：多喝水帮助代谢，避免含糖饮料</p>
+                </div>
+            </div>
+            
+            <!-- 第二天 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h2>第二天：加速燃脂</h2>
+                </div>
+                <div class="meal-plan">
+                    <p class="meal-title">早餐：燕麦粥1碗 + 蓝莓少许</p>
+                    <p class="meal-title">午餐：豆腐蔬菜汤 + 小份糙米饭</p>
+                    <p class="meal-title">晚餐：烤三文鱼150g +  asparagus + 番茄</p>
+                </div>
+                <div class="exercise">
+                    <h3>运动计划</h3>
+                    <p>20分钟HIIT训练 + 10分钟核心训练</p>
+                </div>
+                <div class="tip">
+                    <p>💡 小贴士：保持蛋白质摄入，防止肌肉流失</p>
+                </div>
+            </div>
+            
+            <!-- 第三天 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h2>第三天：坚持动力</h2>
+                </div>
+                <div class="meal-plan">
+                    <p class="meal-title">早餐：希腊酸奶150g + 坚果少许 + 蜂蜜一茶匙</p>
+                    <p class="meal-title">午餐：瘦牛肉炒蔬菜（少油）</p>
+                    <p class="meal-title">晚餐：海鲜蔬菜沙拉（虾仁+蔬菜）</p>
+                </div>
+                <div class="exercise">
+                    <h3>运动计划</h3>
+                    <p>40分钟匀速跑或快走</p>
+                </div>
+                <div class="tip">
+                    <p>💡 小贴士：如果感到饥饿，可增加蔬菜摄入</p>
+                </div>
+            </div>
+            
+            <!-- 第四天 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h2>第四天：突破平台</h2>
+                </div>
+                <div class="meal-plan">
+                    <p class="meal-title">早餐：蔬菜蛋白烘蛋（2个蛋+蔬菜）</p>
+                    <p class="meal-title">午餐：鸡胸肉三明治（全麦面包）</p>
+                    <p class="meal-title">晚餐：清蒸鸡胸肉150g + 烤蔬菜</p>
+                </div>
+                <div class="exercise">
+                    <h3>运动计划</h3>
+                    <p>30分钟游泳或骑行 + 拉伸</p>
+                </div>
+                <div class="tip">
+                    <p>💡 小贴士：改变运动方式有助于突破减重平台期</p>
+                </div>
+            </div>
+            
+            <!-- 第五天 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h2>第五天：能量提升</h2>
+                </div>
+                <div class="meal-plan">
+                    <p class="meal-title">早餐：全麦燕麦粥 + 香蕉半根</p>
+                    <p class="meal-title">午餐：金枪鱼沙拉 + 藜麦</p>
+                    <p class="meal-title">晚餐：烤鱼150g + 蒜蓉菠菜</p>
+                </div>
+                <div class="exercise">
+                    <h3>运动计划</h3>
+                    <p>45分钟力量训练（全身）</p>
+                </div>
+                <div class="tip">
+                    <p>💡 小贴士：适当增加健康碳水化合物，提供运动能量</p>
+                </div>
+            </div>
+            
+            <!-- 第六天 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h2>第六天：持续燃脂</h2>
+                </div>
+                <div class="meal-plan">
+                    <p class="meal-title">早餐：蔬菜smoothie（菠菜+香蕉+蛋白粉）</p>
+                    <p class="meal-title">午餐：烤鸡胸肉150g + 糙米饭 + 蔬菜</p>
+                    <p class="meal-title">晚餐：番茄汤 + 蒸虾仁100g</p>
+                </div>
+                <div class="exercise">
+                    <h3>运动计划</h3>
+                    <p>30分钟间歇跑 + 15分钟瑜伽</p>
+                </div>
+                <div class="tip">
+                    <p>💡 小贴士：周末可以尝试新的健康食谱，保持饮食多样性</p>
+                </div>
+            </div>
+            
+            <!-- 第七天 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h2>第七天：巩固成果</h2>
+                </div>
+                <div class="meal-plan">
+                    <p class="meal-title">早餐：煎蛋卷（2个蛋+蘑菇+洋葱）</p>
+                    <p class="meal-title">午餐：烤三文鱼150g + 红薯 + 蔬菜</p>
+                    <p class="meal-title">晚餐：鸡胸肉沙拉 + 牛油果半颗</p>
+                </div>
+                <div class="exercise">
+                    <h3>运动计划</h3>
+                    <p>60分钟户外活动（徒步、骑行等）</p>
+                </div>
+                <div class="tip">
+                    <p>💡 小贴士：记录一周成果，制定下一阶段目标</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <h3>健康减肥，贵在坚持！</h3>
+            <p>本计划为通用建议，请根据个人身体状况调整</p>
+            <p>如有特殊健康问题，请咨询医生或营养师</p>
+            <a href="#" class="btn">打印计划表</a>
+        </footer>
+    </div>
+
+    <script>
+        // 简单的打印功能
+        document.querySelector('.btn').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+</html>
+```
+
+## 功能说明
+
+这个七日减肥计划表具有以下特点：
+
+1. **响应式设计**：在手机和电脑上都能良好显示
+2. **美观的UI**：采用现代卡片式设计，配色舒适
+3. **完整内容**：包含七天的饮食和运动计划
+4. **实用功能**：提供打印按钮方便用户打印计划
+5. **健康提示**：每天都有实用的小贴士
+
+您可以直接复制上面的代码到HTML文件中，在浏览器中打开即可使用。用户可以通过打印按钮将计划表打印出来，方便随时查看。
